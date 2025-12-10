@@ -1,5 +1,5 @@
 ---
-title: 'My Game Dev Journey Day 1'
+title: 'Devlog #1 — My Game Development Journey'
 description: 'Chuyển từ C# sang GDScript & Xây dựng Maze Game với Godot 4.5'
 pubDate: 'Dec 10 2025'
 heroImage: '/public/blog-placeholder-1.jpg'
@@ -7,32 +7,31 @@ heroImage: '/public/blog-placeholder-1.jpg'
 
 Xin chào mọi người!
 
-Hôm nay mình muốn chia sẻ một bước tiến quan trọng trong hành trình làm game indie: chuyển toàn bộ project Maze Escape từ C# sang GDScript, và đặc biệt lần đầu tiên export game sang Web để chạy trực tiếp trên GitHub Pages.
+Hôm nay mình muốn chia sẻ một bước tiến quan trọng trong hành trình làm game indie: **chuyển toàn bộ project Maze Escape từ C# sang GDScript**, và đặc biệt là **lần đầu tiên export game sang Web để chạy trực tiếp trên GitHub Pages**.
 
-Ban đầu mình nghĩ việc này đơn giản, nhưng hóa ra mình đã học được rất nhiều điều thú vị về cách Godot vận hành. Và đây là toàn bộ trải nghiệm của mình trong ngày hôm nay.
+Ban đầu mình nghĩ việc này đơn giản, nhưng thực tế mình đã học được rất nhiều điều thú vị về cách Godot vận hành. Đây là toàn bộ những trải nghiệm mới mẻ của mình trong ngày hôm nay.
 
-⸻
+---
 
-🚧 Vì sao mình phải bỏ C# trong Godot 4.x?
+## 🚧 Vì sao mình phải bỏ C# trong Godot 4.x?
 
-Dự án của mình khởi đầu bằng C# vì mình đã quen ngôn ngữ này từ Unity.
-Nhưng ngay khi thử export sang Web, Godot báo:
+Project ban đầu dùng C# vì mình quen Unity. Nhưng khi thử export Web, Godot thông báo:
 
-Exporting to Web is currently not supported when using C#/.NET
+> **Exporting to Web is currently not supported when using C#/.NET**
 
-Điều này dẫn đến một kết luận khá buồn nhưng rõ ràng:
-	•	❌ Godot 4 Web Export không hỗ trợ C#
-	•	✔ Web Export chỉ hoạt động với GDScript
+Tóm lại:
 
-Nên mình quyết định convert toàn bộ code sang GDScript.
+- ❌ Web export **không hỗ trợ C#**
+- ✔ Web export **chỉ hoạt động với GDScript**
 
-Đây là một cú “đập đi xây lại”, nhưng cũng là cơ hội tốt để mình hiểu Godot sâu hơn.
+Vậy nên mình quyết định **convert toàn bộ code sang GDScript**.  
+Một cú “đập đi làm lại” đúng nghĩa — nhưng hóa ra lại là cơ hội cực tốt để hiểu Godot sâu hơn.
 
-⸻
+---
 
-✨ Viết lại Player bằng GDScript
+## ✨ Viết lại Player bằng GDScript
 
-Mình bắt đầu từ Player — đơn giản nhất nhưng là nền tảng gameplay.
+Mình bắt đầu từ Player — phần đơn giản nhất nhưng là nền tảng gameplay.
 
 ```python
 extends CharacterBody2D
@@ -49,56 +48,59 @@ func _physics_process(delta):
 
     velocity = input.normalized() * speed
     move_and_slide()
-
 ```
 
-Nhìn rất gọn và tự nhiên.
-GDScript làm mình cảm giác “game-code friendly” hơn là C#.
+GDScript cho cảm giác **gọn – nhanh – tự nhiên**, thân thiện với workflow làm game hơn C# rất nhiều.
 
-⸻
+---
 
-🧱 Xây dựng Maze 10×10 từ code
+## 🧱 Xây dựng Maze 10×10 từ code
 
-Maze được build bằng mảng 2D:
+Maze được build hoàn toàn bằng mảng 2D:
 
+```python
 var maze_10x10 = [
-	[1,1,1,1,1,1,1,1,1,1],
-	[1,0,0,1,0,0,0,0,0,1],
-	[1,0,1,1,0,1,1,1,0,1],
-	...
+    [1,1,1,1,1,1,1,1,1,1],
+    [1,0,0,1,0,0,0,0,0,1],
+    [1,0,1,1,0,1,1,1,0,1],
+    ...
 ]
+```
 
-Mỗi ô tường sẽ tạo ra:
-	•	StaticBody2D
-	•	CollisionShape2D
-	•	Sprite2D
+Mỗi ô tường tạo ra:
 
-img.fill(color)
+- `StaticBody2D`
+- `CollisionShape2D`
+- `Sprite2D`
 
-Cách này nhanh hơn rất nhiều.
+Cách này **linh hoạt hơn TileMap**, và cực nhanh để prototype.
 
-⸻
+---
 
-📐 Tính toán Tile Size cho 1920×1080
+## 📐 Tính toán Tile Size cho màn hình 1920×1080
 
-Maze của mình là 10×10 cells.
-Mình muốn maze vuông và đẹp nhất trên màn hình widescreen.
+Maze 10×10 → cần tile vuông và đẹp nhất trên widescreen.
 
 Công thức:
 
+```
 tile_size = screen_height / 10
 tile_size = 1080 / 10 = 108 px
+```
 
-Maze sẽ có kích thước:
-	•	1080×1080 px
-	•	Hai bên mỗi bên thừa 420px → rất đẹp để đặt UI
+Kết quả:
 
-⸻
+- Maze có kích thước: **1080×1080 px**
+- Hai bên thừa mỗi bên **420px**
+- Rất hợp để đặt UI / button / debug panel
 
-🎮 Joystick cho mobile trong Godot 4
+---
 
-Mình cũng viết lại Joystick bằng GDScript.
+## 🎮 Viết Joystick cho mobile trong Godot 4
 
+Joystick mình viết lại với GDScript:
+
+```python
 extends Control
 
 @export var radius: float = 80.0
@@ -112,71 +114,78 @@ func _gui_input(event):
             reset_knob()
     elif event is InputEventScreenDrag:
         update_knob(event.position)
+```
 
-Sau đó Player chỉ cần đọc:
+Player chỉ cần đọc:
 
+```python
 if joystick.output.length() > 0.1:
     input = joystick.output
+```
 
-Và thế là chạy mượt trên mobile.
+Và thế là chạy mượt trên mobile 😊
 
-⸻
+---
 
-🔥 Những file nào cần ignore khi dùng Git?
+## 🔥 Những file nào cần ignore khi dùng Git?
 
-Godot 4 có hệ thống file .uid để giữ reference asset.
-Nên sau khi tìm hiểu kỹ, mình rút ra bảng sau:
+Godot 4 có `.uid` để lưu identity của resource.
 
-File / Folder	Commit?	Lý do
-.import/	❌ Không	Là cache, nặng và tái tạo được
-*.import	✔ Có	Metadata import của asset
-*.uid	✔ Có	Identity của resource trong Godot 4
-.mono/, .csproj, .sln	❌ Không	Thuộc .NET, không dùng cho Web
+Bảng tổng hợp chuẩn nhất:
 
-Nhờ ignore đúng, project của mình trở nên sạch và nhẹ hơn rất nhiều.
+| File / Folder | Commit? | Lý do |
+|---------------|---------|-------|
+| `.import/` | ❌ Không | Cache, nặng, có thể tái tạo |
+| `*.import` | ✔ Có | Metadata import |
+| `*.uid` | ✔ Có | Cực quan trọng trong Godot 4 |
+| `.mono/`, `.csproj`, `.sln` | ❌ Không | Thuộc .NET, không dùng Web |
 
-⸻
+Nhờ ignore đúng → repo của mình **nhẹ, sạch, dễ deploy**.
 
-🚀 Lần đầu export Web thành công!
+---
+
+## 🚀 Lần đầu export Web thành công!
 
 Sau khi:
-	•	Xóa toàn bộ file C#: .mono/, .csproj, .sln
-	•	Convert toàn bộ sang GDScript
-	•	Sửa lại project.godot
 
-Cuối cùng mình export Web thành công!
+- Xóa toàn bộ file C#: `.mono/`, `.csproj`, `.sln`
+- Convert sang GDScript
+- Cấu hình lại `project.godot`
 
-Rồi chạy local bằng Python:
+Mình export Web thành công ngay 🎉
 
+Chạy local:
+
+```
 python3 -m http.server 8000
+```
 
-Và mọi thứ chạy mượt.
-Deploy lên GitHub Pages cũng chỉ mất vài phút.
+Rồi deploy GitHub Pages — chỉ mất vài phút.
 
-⸻
+Cảm giác lần đầu game của mình chạy được trên trình duyệt thật sự rất “đã”.
 
-🎉 Kết luận – Những gì mình học được hôm nay
-	•	Godot 4 Web export chỉ hỗ trợ GDScript
-	•	GDScript rất sạch và hợp với Godot
-	•	Maze có thể build đẹp từ code và giữ tỉ lệ hoàn hảo
-	•	Joystick mobile viết cực dễ
-	•	File .uid cực kỳ quan trọng trong Godot 4
-	•	.import/ phải ignore
-	•	Web export + GitHub Pages rất dễ triển khai
-	•	Mình đã có một gameplay prototype hoàn chỉnh trong một ngày
+---
 
-⸻
+## 🎉 Kết luận – Những gì mình học được hôm nay
 
-🔭 Ngày mai mình sẽ làm gì?
+- Godot 4 Web Export **chỉ hỗ trợ GDScript**
+- GDScript sạch, gọn và hợp với phong cách của Godot
+- Maze build bằng code dễ điều chỉnh, dễ scale
+- Joystick mobile viết đơn giản bất ngờ
+- File `.uid` **bắt buộc commit**
+- Folder `.import/` **tuyệt đối không commit**
+- Web Export + GitHub Pages: nhanh, dễ, chuẩn indie dev
+- Mình đã có **prototype gameplay hoàn chỉnh** chỉ trong một ngày
 
-Mình đang phân vân muốn làm tiếp:
-	•	Animation cho Player
-	•	Smooth Camera Follow
-	•	Thuật toán tạo maze ngẫu nhiên (DFS / Prim / Kruskal)
-	•	UI menu với hiệu ứng chuyển cảnh
+---
 
-Nếu bạn đang theo dõi hành trình này, nhớ ghé lại vào ngày mai nhé!
+## 🔭 Ngày mai mình sẽ làm gì?
 
-⸻
+Mình đang phân vân giữa:
 
-Nếu bạn muốn mình viết giúp banner hình, hoặc version tiếng Anh, hoặc copywriting mạnh hơn cho SEO, chỉ cần nói: “generate English blog version” hoặc “viết phiên bản SEO” nhé!
+- Thêm animation cho Player  
+- Smooth Camera Follow  
+- Thuật toán tạo maze ngẫu nhiên (DFS / Prim / Kruskal)  
+- UI menu với hiệu ứng transition  
+
+Nếu bạn đang theo dõi hành trình này, hẹn gặp lại vào ngày mai!
