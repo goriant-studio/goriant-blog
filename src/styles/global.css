@@ -122,6 +122,11 @@ h3 { font-size: 1.953em; }
 h4 { font-size: 1.563em; }
 h5 { font-size: 1.25em; }
 
+code {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
 p, li {
   font-size: 1.25em;
   line-height: 1.9;
@@ -255,5 +260,14 @@ nav a[aria-current="page"] {
   height:1px;
   overflow:hidden;
 }
+
+/* --- HERO IMAGE FIX (GLOBAL) --- */
+li .data-astro-cid img {
+  width: 100% !important;
+  height: 400px !important;
+  object-fit: cover !important;
+  border-radius: 12px !important;
+}
+
 
 /* End of clean dark-only stylesheet */

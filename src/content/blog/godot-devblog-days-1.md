@@ -2,7 +2,7 @@
 title: 'Devlog #1 — My Game Development Journey'
 description: 'Chuyển từ C# sang GDScript & Xây dựng Maze Game với Godot 4.5'
 pubDate: 'Dec 10 2025'
-heroImage: '/public/blog-placeholder-1.jpg'
+heroImage: '/public/images/first-devlog.png'
 ---
 
 Xin chào mọi người!
@@ -10,6 +10,8 @@ Xin chào mọi người!
 Hôm nay mình muốn chia sẻ một bước tiến quan trọng trong hành trình làm game indie: **chuyển toàn bộ project Maze Escape từ C# sang GDScript**, và đặc biệt là **lần đầu tiên export game sang Web để chạy trực tiếp trên GitHub Pages**.
 
 Ban đầu mình nghĩ việc này đơn giản, nhưng thực tế mình đã học được rất nhiều điều thú vị về cách Godot vận hành. Đây là toàn bộ những trải nghiệm mới mẻ của mình trong ngày hôm nay.
+
+Xin mời bạn [Play Maze Escape](/games/Maze/index.html){:target="_blank"}
 
 ---
 
