@@ -1,7 +1,7 @@
 ---
 title: 'Devlog #1 — My Game Development Journey'
 description: 'Chuyển từ C# sang GDScript & Xây dựng Maze Game với Godot 4.5'
-pubDate: 'Dec 10 2025'
+date: 2023-01-01
 heroImage: '/public/images/first-devlog.png'
 ---
 

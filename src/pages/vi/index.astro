@@ -1,0 +1,142 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout lang="vi">
+  <!-- HERO / PHILOSOPHY -->
+  <section class="relative overflow-hidden pt-44 pb-24">
+    <!-- ambient lights (nhẹ) -->
+    <div
+      class="pointer-events-none absolute -top-40 -left-40 h-[520px] w-[520px]
+             rounded-full bg-purple-500/18 blur-[160px]"
+    ></div>
+    <div
+      class="pointer-events-none absolute top-10 right-0 h-[460px] w-[460px]
+             rounded-full bg-blue-500/18 blur-[140px]"
+    ></div>
+
+    <div class="relative mx-auto max-w-6xl px-6">
+      <p class="text-sm font-medium text-white/60">
+        🎮 Goriant — web game & nhật ký làm game
+      </p>
+
+      <h1 class="mt-4 text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight text-white">
+        Mình làm game indie<br />
+        <span class="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
+          và chia sẻ toàn bộ hành trình
+        </span>
+      </h1>
+
+      <p class="mt-6 max-w-2xl text-base sm:text-lg text-white/70">
+        Đây là nơi mình xây dựng game bằng <span class="text-white/90 font-medium">Godot</span>,
+        xuất bản <span class="text-white/90 font-medium">Web</span> để mọi người chơi thử nhanh,
+        và phát hành <span class="text-white/90 font-medium">Android</span> khi gameplay đủ “chín”.
+        Mình ghi lại cả thứ làm được lẫn thứ đang vướng — để học nhanh hơn và làm tốt hơn.
+      </p>
+
+      <div class="mt-10 flex flex-col sm:flex-row gap-4">
+        <a
+          href="/vi/games"
+          class="inline-flex items-center justify-center rounded-full
+                 bg-white/10 backdrop-blur border border-white/15
+                 px-6 py-3 text-sm font-medium text-white
+                 hover:bg-white/15 transition"
+        >
+          Xem danh sách game →
+        </a>
+
+        <a
+          href="/vi/blog"
+          class="inline-flex items-center justify-center rounded-full
+                 bg-gradient-to-r from-purple-500 to-blue-500
+                 px-6 py-3 text-sm font-medium text-white
+                 hover:from-blue-500 hover:to-purple-500 transition"
+        >
+          Đọc devlog mới nhất
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRINCIPLES -->
+  <section class="relative pb-20">
+    <div class="mx-auto max-w-6xl px-6">
+      <h2 class="text-lg font-semibold text-white">
+        🧠 Triết lý mình theo đuổi
+      </h2>
+
+      <div class="mt-6 grid gap-6 md:grid-cols-3">
+        <div class="rounded-2xl bg-white/5 backdrop-blur border border-white/10 p-6">
+          <p class="text-sm font-semibold text-white">Prototype sớm</p>
+          <p class="mt-2 text-sm text-white/70">
+            Làm bản chơi được càng sớm càng tốt để kiểm tra cảm giác (feel) và nhịp độ.
+          </p>
+        </div>
+
+        <div class="rounded-2xl bg-white/5 backdrop-blur border border-white/10 p-6">
+          <p class="text-sm font-semibold text-white">Iterate nhỏ nhưng đều</p>
+          <p class="mt-2 text-sm text-white/70">
+            Mỗi vòng cập nhật tập trung vào 1–2 thứ quan trọng: control, enemy, level, feedback.
+          </p>
+        </div>
+
+        <div class="rounded-2xl bg-white/5 backdrop-blur border border-white/10 p-6">
+          <p class="text-sm font-semibold text-white">Build in public</p>
+          <p class="mt-2 text-sm text-white/70">
+            Viết devlog để ghi lại quyết định, bài học, và các thử nghiệm (kể cả fail).
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT YOU'LL FIND HERE -->
+  <section class="relative pb-28">
+    <div class="mx-auto max-w-6xl px-6">
+      <h2 class="text-lg font-semibold text-white">
+        📌 Bạn sẽ tìm thấy gì ở đây?
+      </h2>
+
+      <div class="mt-6 grid gap-6 md:grid-cols-2">
+        <div class="rounded-2xl bg-white/5 backdrop-blur border border-white/10 p-6">
+          <h3 class="text-base font-semibold text-white">Game hub</h3>
+          <p class="mt-2 text-sm text-white/70">
+            Mỗi game có một trang riêng: trạng thái hiện tại, mô tả ngắn, link chơi web,
+            link devlog theo game.
+          </p>
+          <a href="/vi/games" class="mt-4 inline-flex text-sm font-medium text-white/80 hover:text-white transition">
+            Đi tới Games →
+          </a>
+        </div>
+
+        <div class="rounded-2xl bg-white/5 backdrop-blur border border-white/10 p-6">
+          <h3 class="text-base font-semibold text-white">Devlog</h3>
+          <p class="mt-2 text-sm text-white/70">
+            Nhật ký phát triển theo mốc: gameplay loop, thiết kế enemy, level pacing,
+            UX feedback, build & release.
+          </p>
+          <a href="/vi/blog" class="mt-4 inline-flex text-sm font-medium text-white/80 hover:text-white transition">
+            Đi tới Devlog →
+          </a>
+        </div>
+      </div>
+
+      <div class="mt-10 rounded-2xl bg-white/5 backdrop-blur border border-white/10 p-6">
+        <p class="text-sm text-white/70">
+          Công cụ chính: <span class="text-white/90 font-medium">Godot</span>.
+          Build mục tiêu: <span class="text-white/90 font-medium">Web</span> (chơi thử nhanh) &
+          <span class="text-white/90 font-medium">Android</span> (khi ổn định).
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTNOTE -->
+  <section class="pb-28">
+    <div class="mx-auto max-w-6xl px-6">
+      <p class="text-xs text-white/50">
+        Nếu bạn muốn góp ý gameplay, balance, hoặc UX: cứ gửi phản hồi qua devlog hoặc trang game — mình đọc hết.
+      </p>
+    </div>
+  </section>
+</BaseLayout>

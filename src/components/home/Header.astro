@@ -1,0 +1,31 @@
+---
+import t from "../../i18n/vi";
+---
+
+<header
+  class="fixed inset-x-0 top-0 z-50
+         bg-[#0f172a]/80
+         supports-[backdrop-filter]:backdrop-blur-md
+         border-b border-white/10"
+>
+  <nav class="mx-auto max-w-7xl flex items-center justify-between px-6 py-4">
+    <a href="/vi" class="flex items-center gap-2 text-white font-semibold">
+      🎮 {t.site.title}
+    </a>
+
+    <ul class="hidden md:flex gap-8 text-sm">
+      <li><a href="/vi" class="text-white/70 hover:text-white">{t.nav.home}</a></li>
+      <li><a href="/vi/games" class="text-white/70 hover:text-white">{t.nav.games}</a></li>
+      <li><a href="/vi/blog" class="text-white/70 hover:text-white">{t.nav.blog}</a></li>
+      <li><a href="/vi/faq" class="text-white/70 hover:text-white">{t.nav.faq}</a></li>
+    </ul>
+
+    <a
+      href="/vi/games/maze-escape"
+      class="rounded-full bg-gradient-to-r from-purple-500 to-blue-500
+             px-5 py-2 text-sm font-medium text-white"
+    >
+      {t.nav.play}
+    </a>
+  </nav>
+</header>

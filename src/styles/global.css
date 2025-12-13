@@ -1,273 +1,192 @@
-/* ============================================================
-   Imports
-   ============================================================ */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-@import "slick-carousel/slick/slick.css";
-@import "slick-carousel/slick/slick-theme.css";
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+@layer properties;
+@import "tailwindcss";
 
-/* Font fallback */
-@font-face {
-  font-family: "Atkinson";
-  src: url("/fonts/atkinson-regular.woff") format("woff");
-  font-weight: 400;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Atkinson";
-  src: url("/fonts/atkinson-bold.woff") format("woff");
-  font-weight: 700;
-  font-display: swap;
-}
-
-/* ============================================================
-   Root Variables (Dark Theme Only)
-   ============================================================ */
+/* =========================================================
+   CSS Variables
+========================================================= */
 :root {
   --primary-purple: #a600f4;
   --primary-blue: #2c7cfc;
+  --primary-pink: #ff80ab;
+  --primary-green: #b9f6ca;
 
   --bg-gradient-start: #1a1f2e;
   --bg-gradient-end: #2a2f42;
+  --bg-card: rgba(255, 255, 255, 0.1);
+  --bg-card-hover: rgba(255, 255, 255, 0.15);
 
-  --text-primary: #b3d9f7;
-  --text-secondary: rgba(255,255,255,0.7);
-  --text-accent: #B388FF;
-
-  --content-width: 720px;
-  --box-shadow:
-    0 2px 6px rgba(0,0,0,0.25),
-    0 8px 24px rgba(0,0,0,0.33),
-    0 16px 32px rgba(0,0,0,0.33);
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.7);
+  --text-accent: #b388ff;
 }
 
-/* ============================================================
-   Base Layout — One Unified Background
-   ============================================================ */
-html, body {
-  margin: 0;
-  height: 100%;
-  font-family: "Poppins", sans-serif;
-  color: var(--text-primary);
-  background: linear-gradient(135deg, var(--bg-gradient-start), var(--bg-gradient-end)) fixed !important;
-
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* =========================================================
+   Base
+========================================================= */
+html {
   scroll-behavior: smooth;
 }
 
-/* Radial ambiance (soft subtle light sources) */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -2;
-  pointer-events: none;
+html,
+body {
+  background-color: #0f172a; /* slate-900 */
+}
+
+body {
+  font-family: "Poppins", system-ui, sans-serif;
+  color: #e5e7eb;
 
   background:
-    radial-gradient(circle at 12% 18%, rgba(189,36,223,0.08) 0%, transparent 45%),
-    radial-gradient(circle at 82% 70%, rgba(45,106,222,0.06) 0%, transparent 50%);
-  filter: blur(160px);
+    radial-gradient(
+      900px 600px at 15% 10%,
+      rgba(139, 92, 246, 0.18),
+      transparent 60%
+    ),
+    radial-gradient(
+      700px 500px at 85% 20%,
+      rgba(59, 130, 246, 0.18),
+      transparent 60%
+    ),
+    linear-gradient(
+      180deg,
+      #111827 0%,
+      #0f172a 50%,
+      #0b1020 100%
+    );
 }
 
-/* Noise dithering to kill banding */
-body::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
 
-  background-image: url("data:image/svg+xml;utf8,\
-<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140'>\
-<filter id='n'>\
-<feTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/>\
-</filter>\
-<rect width='100%' height='100%' filter='url(%23n)'/>\
-</svg>");
-  mix-blend-mode: overlay;
-  opacity: 0.035;
-}
-
-/* ============================================================
-   Content Layout
-   ============================================================ */
-main {
-  width: var(--content-width);
-  max-width: calc(100% - 2em);
-  margin: auto;
-  padding: 4.5rem 1em 3em;
-  box-sizing: border-box;
-}
-
-@media (max-width: 720px) {
-  body { font-size: 18px; }
-  main { padding: 5rem 1em 1em; }
-}
-
-/* ============================================================
-   Typography
-   ============================================================ */
-h1,h2,h3,h4,h5,h6 {
-  margin: 0 0 0.5rem 0;
-  line-height: 1.2;
-  color: var(--text-primary);
-}
-
-h1 { font-size: 3.052em; }
-h2 { font-size: 2.441em; }
-h3 { font-size: 1.953em; }
-h4 { font-size: 1.563em; }
-h5 { font-size: 1.25em; }
-
-code {
-  font-size: 16px;
-  line-height: 1.5;
-}
-
-p, li {
-  font-size: 1.25em;
-  line-height: 1.9;
-  margin-bottom: 1.25em;
-}
-
-.prose p { margin-bottom: 2em; }
-
-strong { font-weight: 700; }
-
-/* Code & Pre */
-pre {
-  background: rgba(0,0,0,0.45);
-  color: var(--text-primary);
-  padding: 1.5em;
-  border-radius: 8px;
-  overflow: auto;
-}
-code {
-  padding: 2px 5px;
-  border-radius: 4px;
-  background: rgba(255,255,255,0.05);
-}
-
-/* Blockquote */
-blockquote {
-  border-left: 4px solid var(--primary-blue);
-  padding-left: 20px;
-  font-size: 1.3em;
-  margin: 0 0 2em;
-}
-
-/* HR */
-hr {
-  border: none;
-  height: 1px;
-  background: rgba(255,255,255,0.08);
-  margin: 2.5em 0;
-}
-
-/* ============================================================
-   Navigation Bar
-   ============================================================ */
-.navbar, header, nav {
-  background: linear-gradient(90deg,#BD24DF 0%,#2D6ADE 97%) !important;
-  background-color: rgba(26,31,46,0.95) !important;
+/* =========================================================
+   Navbar
+========================================================= */
+.navbar {
+  @apply fixed w-full z-50 transition-all duration-300;
+  background: rgba(26, 31, 46, 0.8);
   backdrop-filter: blur(8px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
-  color: #fff;
-  z-index: 9999;
 }
 
-nav a, .nav-link, .navbar-link {
-  color: #fff !important;
-  text-decoration: none;
-  transition: color .18s ease;
-}
-nav a:hover { color: #D3B7FF !important; }
-
-nav a.active,
-nav a[aria-current="page"] {
-  border-bottom: 2px solid var(--primary-blue);
+.navbar.scrolled {
+  background: rgba(26, 31, 46, 0.95);
 }
 
-/* ============================================================
-   Decorative Elements (Cleaned)
-   ============================================================ */
-.arrowOne, .arrowTwo, .arrowThree,
-.arrowFour, .arrowFive, .arrowSix,
-.arrowSeven, .arrowEight {
-  position: absolute;
-  opacity: 0.4;
-  background-repeat: no-repeat;
-  background-size: contain;
-  z-index: -1;
+.navbar-link {
+  @apply text-white hover:text-purple-300 transition-colors;
 }
 
-.radial-bg,
-.radial-bgone,
-.radial-banner,
-.simple-bg {
-  background: none !important;
-  filter: none !important;
-  opacity: 0 !important;
+.navbutton {
+  background: linear-gradient(90deg, #bd24df 0%, #2d6ade 97.15%);
+  border-radius: 10px;
 }
 
-/* ============================================================
-   Cards, Buttons, Glass
-   ============================================================ */
+.navbutton:hover {
+  background: linear-gradient(90deg, #2d6ade 0%, #bd24df 97.15%);
+}
+
+/* =========================================================
+   Cards / Sections
+========================================================= */
 .card-b {
-  background: rgba(12,27,68,0.8);
-  box-shadow: 0 4px 4px rgba(0,0,0,0.25);
+  background: #0c1b44;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 20px;
-  transition: .3s;
-  overflow: hidden;
+  transition: transform 430ms;
+  height: 258px;
 }
+
 .card-b:hover {
   transform: scale(1.05);
-  border: 1px solid #BD24DF;
+  border: 1px solid #bd24df;
+  height: 360px;
+}
+
+.feature-card {
+  @apply p-6 rounded-xl transition-all duration-300;
+  background: var(--bg-card);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.feature-card:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--primary-purple);
+  transform: translateY(-4px);
+}
+
+/* =========================================================
+   Buttons
+========================================================= */
+.game-button {
+  @apply px-6 py-2 rounded-full font-medium transition-all duration-300;
+  background: linear-gradient(
+    135deg,
+    var(--primary-purple),
+    var(--primary-blue)
+  );
+  color: #fff;
+}
+
+.game-button:hover {
+  transform: translateY(-4px);
+  background: linear-gradient(
+    135deg,
+    var(--primary-blue),
+    var(--primary-purple)
+  );
+}
+
+/* =========================================================
+   Utilities / Effects
+========================================================= */
+.gradient-text {
+  font-weight: 700;
+  background: linear-gradient(
+    135deg,
+    var(--primary-purple),
+    var(--primary-blue)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .glass-effect {
-  backdrop-filter: blur(6px);
-  background: rgba(255,255,255,0.03);
-  border: 1px solid rgba(255,255,255,0.05);
-  border-radius: 12px;
+  backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.game-button {
-  padding: .5rem 1.25rem;
-  border-radius: 999px;
-  font-weight: 600;
-  background: linear-gradient(135deg, var(--primary-purple), var(--primary-blue));
-  transition: .3s;
-  color: white;
-}
-.game-button:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--box-shadow);
-}
-
-/* ============================================================
-   Utilities
-   ============================================================ */
-.center  { display:flex; justify-content:center; align-items:center; }
-.container { max-width: var(--content-width); margin:auto; padding:0 1rem; }
-.sr-only {
-  clip: rect(1px,1px,1px,1px);
-  position:absolute;
-  width:1px;
-  height:1px;
-  overflow:hidden;
+/* =========================================================
+   Animations
+========================================================= */
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 
-/* --- HERO IMAGE FIX (GLOBAL) --- */
-li .data-astro-cid img {
-  width: 100% !important;
-  height: 400px !important;
-  object-fit: cover !important;
-  border-radius: 12px !important;
+.float-animation {
+  animation: float 3s ease-in-out infinite;
 }
 
+/* =========================================================
+   Tailwind Components Layer
+========================================================= */
+@layer components {
+  .nav-link {
+    @apply px-3 py-2 text-sm font-medium text-white hover:text-purple-300 transition-colors;
+  }
 
-/* End of clean dark-only stylesheet */
+  .nav-link-active {
+    @apply text-purple-300;
+  }
+
+  .mobile-menu {
+    @apply fixed inset-0 z-50;
+    background: rgba(26, 31, 46, 0.98);
+  }
+}

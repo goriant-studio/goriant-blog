@@ -1,0 +1,53 @@
+---
+import BaseLayout from "../../../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout lang="vi">
+  <main class="mx-auto max-w-5xl px-6 pt-40 pb-28">
+    <a href="/vi/games" class="text-sm text-white/60 hover:text-white">
+      ← Quay lại Games
+    </a>
+
+    <header class="mt-6">
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-white">
+        MazeEscape
+      </h1>
+      <p class="mt-3 max-w-2xl text-white/70">
+        MazeEscape là một game mê cung góc nhìn từ trên xuống.
+        Trọng tâm hiện tại là gameplay cốt lõi: di chuyển,
+        né tránh kẻ địch và cấu trúc bản đồ.
+      </p>
+    </header>
+
+    <section class="mt-10 grid gap-8 md:grid-cols-2">
+      <div>
+        <h2 class="text-lg font-semibold text-white">Trạng thái hiện tại</h2>
+        <ul class="mt-3 text-sm text-white/70 space-y-1">
+          <li>• Prototype đã chơi được</li>
+          <li>• Nhiều loại kẻ địch với hành vi khác nhau</li>
+          <li>• Đang tinh chỉnh độ khó và pacing</li>
+        </ul>
+
+        <div class="mt-6 flex gap-4">
+          <a
+            href="/vi/games/maze-escape/play"
+            class="rounded-full bg-purple-600 px-5 py-2 text-sm text-white"
+          >
+            ▶ Chơi bản Web
+          </a>
+
+          <a
+            href="/vi/games/maze-escape/devlog"
+            class="text-sm text-white/70 hover:text-white transition"
+          >
+            Xem devlog →
+          </a>
+        </div>
+      </div>
+
+      <div class="rounded-xl bg-white/10 border border-white/10 p-4 text-white/60">
+        Preview gameplay (ảnh / gif / video sau)
+      </div>
+    </section>
+  </main>
+</BaseLayout>

@@ -1,0 +1,33 @@
+---
+import BaseLayout from "../../../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout lang="vi">
+  <main class="mx-auto max-w-5xl px-6 pt-40 pb-28">
+    <a href="/vi/games/maze-escape" class="text-sm text-white/60 hover:text-white">
+      ← Quay lại MazeEscape
+    </a>
+
+    <h1 class="mt-6 text-2xl font-bold text-white">
+      Chơi MazeEscape (Web Prototype)
+    </h1>
+
+    <p class="mt-3 max-w-2xl text-white/70 text-sm">
+      Đây là bản build Web từ Godot (HTML5).
+      Khuyến nghị chơi trên desktop. Mobile browser có thể không ổn định.
+    </p>
+
+    <div class="mt-8 aspect-video rounded-xl overflow-hidden border border-white/10 bg-black">
+      <!-- Godot HTML5 embed -->
+      <iframe
+        src="/games/Maze/index.html"
+        class="w-full h-full"
+        loading="lazy"
+      ></iframe>
+    </div>
+
+    <p class="mt-4 text-xs text-white/50">
+      Nếu gặp lỗi, hãy reload trang hoặc thử trình duyệt khác.
+    </p>
+  </main>
+</BaseLayout>

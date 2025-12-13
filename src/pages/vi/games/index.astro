@@ -1,0 +1,47 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout lang="vi">
+  <main class="mx-auto max-w-6xl px-6 pt-40 pb-28">
+    <header class="mb-10">
+      <h1 class="text-3xl font-extrabold text-white">🎮 Games</h1>
+      <p class="mt-3 max-w-2xl text-white/70">
+        Danh sách các game indie mình đang phát triển.
+        Mỗi game có trang riêng để theo dõi tiến trình, devlog và chơi thử bản web.
+      </p>
+    </header>
+
+    <div class="grid gap-6 md:grid-cols-2">
+      <!-- MazeEscape card -->
+      <div class="rounded-2xl bg-white/5 backdrop-blur border border-white/10 p-6">
+        <h2 class="text-xl font-semibold text-white">MazeEscape</h2>
+        <p class="mt-2 text-sm text-white/70">
+          Game mê cung góc nhìn từ trên xuống, tập trung vào di chuyển,
+          né tránh kẻ địch và thiết kế bản đồ.
+        </p>
+
+        <ul class="mt-3 text-xs text-white/60 space-y-1">
+          <li>• Trạng thái: Early Prototype</li>
+          <li>• Engine: Godot</li>
+          <li>• Nền tảng: Web, Android</li>
+        </ul>
+
+        <div class="mt-5 flex gap-4">
+          <a
+            href="/vi/games/maze-escape"
+            class="rounded-full bg-purple-600 px-4 py-2 text-sm text-white"
+          >
+            Xem game
+          </a>
+          <a
+            href="/vi/games/maze-escape/play"
+            class="text-sm text-white/70 hover:text-white transition"
+          >
+            Chơi web →
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+</BaseLayout>
