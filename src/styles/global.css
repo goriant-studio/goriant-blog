@@ -157,20 +157,17 @@ body {
 /* =========================================================
    Animations
 ========================================================= */
-@keyframes float {
-  0% {
+@keyframes soft-bounce {
+  0%, 100% {
     transform: translateY(0);
   }
   50% {
-    transform: translateY(-10px);
-  }
-  100% {
-    transform: translateY(0);
+    transform: translateY(-4px);
   }
 }
 
-.float-animation {
-  animation: float 3s ease-in-out infinite;
+.animate-soft-bounce {
+  animation: soft-bounce 1.8s ease-in-out infinite;
 }
 
 /* =========================================================
