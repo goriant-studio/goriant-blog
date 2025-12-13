@@ -1,69 +1,61 @@
 ---
-import { undefined } from "astro:schema";
-import BaseLayout from "../../../layouts/BaseLayout.astro";
+import DevlogLayout from "../../../layouts/DevlogLayout.astro";
 import { getCollection, getEntry, render } from "astro:content";
 
 export async function getStaticPaths() {
   const posts = await getCollection("blog-vi");
 
-  return posts
-  .map((entry) => {
-    console.log('entry: ', entry);
-    
-    const slug = entry.id
-      .split("/")
-      .pop()!
-      .replace(/\.(md|mdx)$/, "");
-
+  return posts.map((entry) => {
+    const slug = entry.id.split("/").pop()?.replace(/\.(md|mdx)$/, "");
     return {
-      params: { slug }, // ✅ string
-      props: {
-        id: entry.id, // dùng id để query lại
-      },
+      params: { slug },
+      props: { id: entry.id },
     };
   });
 }
 
 const { id } = Astro.props;
 
-// ✅ LẤY ENTRY ĐÚNG API
-const post = await getEntry("blog-vi", id);
-
-if (!post) {
-  throw new Error(`Post not found: ${id}`);
-}
-
-// ✅ RENDER ĐÚNG API
+const post: any = await getEntry("blog-vi", id);
 const { Content } = await render(post);
+
+// LẤY POSTS CHO SIDEBAR
+const posts = (await getCollection("blog-vi"))
+  .filter((p) => p.data.game === "maze-escape")
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+const currentSlug = post.id.split("/").pop()?.replace(/\.(md|mdx)$/, "");
 ---
 
-<BaseLayout lang="vi">
-  <main class="mx-auto max-w-3xl px-6 pt-40 pb-24">
-    <a
-      href="/vi/blog"
-      class="text-sm text-white/60 hover:text-white transition"
-    >
-      ← Quay lại danh sách devlog
-    </a>
+<DevlogLayout
+  lang="vi"
+  posts={posts}
+  currentSlug={currentSlug}
+>
+  <a
+    href="/vi/blog"
+    class="text-sm text-white/60 hover:text-white transition"
+  >
+    ← Quay lại danh sách devlog
+  </a>
 
-    <header class="mt-6">
-      <p class="text-sm text-white/50">
-        {post.data.date.toLocaleDateString("vi-VN")}
+  <header class="mt-6">
+    <p class="text-sm text-white/50">
+      {post.data.date.toLocaleDateString("vi-VN")}
+    </p>
+
+    <h1 class="mt-3 text-3xl sm:text-4xl font-extrabold text-white">
+      {post.data.title}
+    </h1>
+
+    {post.data.description && (
+      <p class="mt-4 text-white/70">
+        {post.data.description}
       </p>
+    )}
+  </header>
 
-      <h1 class="mt-3 text-3xl sm:text-4xl font-extrabold text-white">
-        {post.data.title}
-      </h1>
-
-      {post.data.description && (
-        <p class="mt-4 text-white/70">
-          {post.data.description}
-        </p>
-      )}
-    </header>
-
-    <article class="prose prose-invert prose-zinc mt-10 max-w-none">
-      <Content />
-    </article>
-  </main>
-</BaseLayout>
+  <article class="mt-10">
+    <Content />
+  </article>
+</DevlogLayout>

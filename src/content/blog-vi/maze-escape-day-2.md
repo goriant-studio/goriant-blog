@@ -1,7 +1,7 @@
 ---
-title: "Devlog #01 – Bản prototype mê cung đầu tiên"
-description: "Gameplay, enemy, và layout maze ban đầu"
-date: 2025-12-10
+title: "Devlog #02 – Thêm mê cung mới nè"
+description: "Thêm mê cung mới nha"
+date: 2025-12-14
 game: "maze-escape"
 tags: ["godot", "maze", "prototype"]
 ---

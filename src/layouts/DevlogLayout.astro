@@ -1,0 +1,53 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+
+const {
+  lang = "vi",
+  posts = [],
+  currentSlug,
+} = Astro.props;
+---
+
+<BaseLayout lang={lang}>
+  <main class="devlog-layout pt-40 pb-28">
+    <!-- MAIN CONTENT -->
+    <article class="devlog-main prose prose-invert prose-zinc max-w-none">
+      <slot />
+    </article>
+
+    <!-- SIDEBAR -->
+    {posts.length > 0 && (
+      <aside class="devlog-sidebar">
+        <h3 class="sidebar-title">📓 Devlog khác</h3>
+
+        <ul class="devlog-list">
+          {posts.map((post: any) => {
+            const slug = post.id
+              .split("/")
+              .pop()
+              ?.replace(/\.(md|mdx)$/, "");
+
+            const isActive = slug === currentSlug;
+
+            return (
+              <li>
+                <a
+                  href={`/vi/blog/${slug}`}
+                  class={isActive ? "active" : ""}
+                >
+                  <span class="devlog-title">
+                    {post.data.title}
+                  </span>
+
+                  <span class="devlog-date">
+                    {post.data.date.toLocaleDateString("vi-VN")}
+                  </span>
+                </a>
+              </li>
+            );
+          })}
+        </ul>
+      </aside>
+    )}
+  </main>
+</BaseLayout>
