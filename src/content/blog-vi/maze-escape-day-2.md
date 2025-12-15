@@ -2,8 +2,9 @@
 title: "Devlog #02 – Thêm mê cung mới nè"
 description: "Thêm mê cung mới nha"
 date: 2025-12-14
-game: "maze-escape"
+game: "Maze Escape"
 tags: ["godot", "maze", "prototype"]
+heroImage: "../../assets/new-maze-level-devlog02.jpg"
 ---
 
 # 🎮 Dev Log #1 – Hành trình tạo game *Maze Escape*

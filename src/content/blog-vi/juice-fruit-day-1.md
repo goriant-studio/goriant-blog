@@ -1,10 +1,10 @@
 ---
-title: "Devlog #01 – Bản prototype mê cung đầu tiên"
-description: "Gameplay, enemy, và layout maze ban đầu"
-date: 2025-12-10
-game: "Maze Escape"
-tags: ["godot", "maze", "prototype"]
-heroImage: "../../assets/maze-escape-devlog01.jpg"
+title: "Devlog #01 – Juice Fruit brand new game"
+description: "Thêm mê cung mới nha"
+date: 2025-12-15
+game: "Juice Fruit"
+tags: ["godot", "fruit", "prototype"]
+heroImage: "../../assets/juice-fruit-game.jpg"
 ---
 
 # 🎮 Dev Log #1 – Hành trình tạo game *Maze Escape*

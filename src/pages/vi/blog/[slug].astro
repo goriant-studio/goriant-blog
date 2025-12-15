@@ -1,6 +1,7 @@
 ---
 import DevlogLayout from "../../../layouts/DevlogLayout.astro";
 import { getCollection, getEntry, render } from "astro:content";
+import Image from "astro/components/Image.astro";
 
 export async function getStaticPaths() {
   const posts = await getCollection("blog-vi");
@@ -25,6 +26,7 @@ const posts = (await getCollection("blog-vi"))
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 
 const currentSlug = post.id.split("/").pop()?.replace(/\.(md|mdx)$/, "");
+const cover = post.data.heroImage;
 ---
 
 <DevlogLayout
@@ -40,6 +42,12 @@ const currentSlug = post.id.split("/").pop()?.replace(/\.(md|mdx)$/, "");
   </a>
 
   <header class="mt-6">
+
+                      {cover && <Image 
+                  class="w-full aspect-[16/9] object-cover"
+                  alt={post.data.title}
+                  width={1020} height={510} src={cover} />}
+
     <p class="text-sm text-white/50">
       {post.data.date.toLocaleDateString("vi-VN")}
     </p>

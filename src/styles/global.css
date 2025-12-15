@@ -56,6 +56,9 @@ body {
     );
 }
 
+  .text-primary-pink {
+    color: var(--primary-pink);
+  }
 
 /* =========================================================
    Navbar
@@ -350,93 +353,4 @@ body {
   background: rgba(255, 255, 255, 0.04);
   padding: 0.8rem 1rem;
   border-radius: 10px;
-}
-
-/* =========================================================
-   Devlog Layout (Main + Sidebar)
-========================================================= */
-.devlog-layout {
-  max-width: calc(90ch + 24rem);
-  margin: 8rem auto;
-  padding: 0 2rem;
-
-  display: grid;
-  grid-template-columns: minmax(0, 3fr) minmax(0, 1.3fr);
-  gap: 3rem;
-  align-items: start;
-}
-
-/* Main content */
-.devlog-main {
-  justify-self: start;
-  
-}
-
-/* Sidebar */
-.devlog-sidebar {
-  position: sticky;
-  top: 6rem;
-
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 16px;
-  padding: 1.2rem 1.4rem;
-}
-
-/* Sidebar title */
-.sidebar-title {
-  font-size: 1.05rem;
-  font-weight: 600;
-  color: #fff;
-  margin-bottom: 1rem;
-}
-
-/* Devlog list */
-.devlog-list {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-}
-
-.devlog-list li a {
-  display: flex;
-  flex-direction: column;
-  gap: 0.2rem;
-
-  padding: 0.6rem 0.7rem;
-  border-radius: 10px;
-  text-decoration: none;
-
-  color: var(--text-secondary);
-  transition: background 0.2s, transform 0.2s;
-}
-
-.devlog-list li a:hover {
-  background: rgba(189, 36, 223, 0.12);
-  transform: translateX(4px);
-}
-
-/* Title */
-.devlog-title {
-  font-size: 0.95rem;
-  font-weight: 500;
-  color: #fff;
-}
-
-/* Date */
-.devlog-date {
-  font-size: 0.75rem;
-  opacity: 0.6;
-}
-
-/* Responsive */
-@media (max-width: 1024px) {
-  .devlog-layout {
-    grid-template-columns: 1fr;
-  }
-
-  .devlog-sidebar {
-    position: static;
-    margin-top: 3rem;
-  }
 }

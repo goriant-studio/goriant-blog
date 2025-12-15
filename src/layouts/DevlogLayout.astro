@@ -1,53 +1,195 @@
 ---
+import { getCollection } from "astro:content";
 import BaseLayout from "./BaseLayout.astro";
 
-const {
-  lang = "vi",
-  posts = [],
-  currentSlug,
-} = Astro.props;
+const { lang = "vi" } = Astro.props;
+const { slug } = Astro.params;
+
+const allPosts = await getCollection("blog-vi");
+
+// ✅ ID của bạn không có .md → so sánh trực tiếp
+const currentPost = allPosts.find((p) => p.id === slug);
+
+if (!currentPost) {
+  throw new Error(`Devlog not found: ${slug}`);
+}
+
+// ✅ lấy game an toàn
+const currentGame = currentPost?.data?.game;
+
+// ✅ Related: cùng game, loại trừ current
+const relatedPosts = (
+  currentGame ? allPosts.filter((p) => p?.data?.game === currentGame && p.id !== slug)
+    : []
+).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+// ✅ Non-related: khác game (nếu currentGame undefined thì coi là "khác")
+const nonRelatedPosts = allPosts
+  .filter((p) => (currentGame ? p?.data?.game !== currentGame : p.id !== slug))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 ---
 
 <BaseLayout lang={lang}>
+  <style>
+    .devlog-layout {
+      max-width: 100rem;
+      margin: 8rem auto;
+      padding: 0 2rem;
+
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 1.4fr);
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .devlog-main {
+      min-width: 0;
+      max-width: 100%;
+    }
+
+    /* Sidebar column: layout only */
+    .sidebar-column {
+      position: sticky;
+      top: 6rem;
+
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+
+      background: none;
+      border: none;
+      padding: 0;
+    }
+
+    /* Sidebar card */
+    .devlog-sidebar {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      padding: 1.2rem 1.4rem;
+    }
+
+    .sidebar-title {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 1rem;
+    }
+
+    .devlog-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .devlog-list a {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+
+      padding: 0.6rem 0.7rem;
+      border-radius: 10px;
+      text-decoration: none;
+
+      color: var(--text-secondary);
+      transition:
+        background 0.2s,
+        transform 0.2s;
+    }
+
+    .devlog-list a:hover {
+      background: rgba(189, 36, 223, 0.12);
+      transform: translateX(4px);
+    }
+
+    .devlog-title {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: #fff;
+    }
+
+    .devlog-date {
+      font-size: 0.75rem;
+      opacity: 0.6;
+    }
+
+    .empty-hint {
+      font-size: 0.9rem;
+      opacity: 0.7;
+      color: #fff;
+      margin: 0;
+    }
+
+    @media (max-width: 1024px) {
+      .devlog-layout {
+        grid-template-columns: 1fr;
+      }
+      .sidebar-column {
+        position: static;
+      }
+    }
+  </style>
+
   <main class="devlog-layout pt-40 pb-28">
-    <!-- MAIN CONTENT -->
     <article class="devlog-main prose prose-invert prose-zinc max-w-none">
       <slot />
     </article>
 
-    <!-- SIDEBAR -->
-    {posts.length > 0 && (
-      <aside class="devlog-sidebar">
+    <aside class="sidebar-column">
+      <!-- CARD 1: Related -->
+      <section class="devlog-sidebar">
+        <h3 class="sidebar-title">
+          📓 Devlog {currentGame ?? "cùng game"}
+        </h3>
+
+        {
+          relatedPosts.length > 0 ? (
+            <ul class="devlog-list">
+              {relatedPosts.map((post) => (
+                <li>
+                  <a href={`/vi/blog/${post.id}`}>
+                    <span class="devlog-title">{post.data.title}</span>
+                    <span class="devlog-date">
+                      {post.data.date.toLocaleDateString("vi-VN")}
+                    </span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <p class="empty-hint">
+              Chưa có devlog liên quan
+            </p>
+          )
+        }
+      </section>
+
+      <!-- CARD 2: Non-related -->
+      <section class="devlog-sidebar">
         <h3 class="sidebar-title">📓 Devlog khác</h3>
 
-        <ul class="devlog-list">
-          {posts.map((post: any) => {
-            const slug = post.id
-              .split("/")
-              .pop()
-              ?.replace(/\.(md|mdx)$/, "");
-
-            const isActive = slug === currentSlug;
-
-            return (
-              <li>
-                <a
-                  href={`/vi/blog/${slug}`}
-                  class={isActive ? "active" : ""}
-                >
-                  <span class="devlog-title">
-                    {post.data.title}
-                  </span>
-
-                  <span class="devlog-date">
-                    {post.data.date.toLocaleDateString("vi-VN")}
-                  </span>
-                </a>
-              </li>
-            );
-          })}
-        </ul>
-      </aside>
-    )}
+        {
+          nonRelatedPosts.length > 0 ? (
+            <ul class="devlog-list">
+              {nonRelatedPosts.map((post) => (
+                <li>
+                  <a href={`/vi/blog/${post.id}`}>
+                    <span class="devlog-title">{post.data.title}</span>
+                    <span class="devlog-date">
+                      {post.data.date.toLocaleDateString("vi-VN")}
+                    </span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <p class="empty-hint">Chưa có devlog khác.</p>
+          )
+        }
+      </section>
+    </aside>
   </main>
 </BaseLayout>
