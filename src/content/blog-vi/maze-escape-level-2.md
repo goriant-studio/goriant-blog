@@ -4,7 +4,7 @@ description: "Thêm mê cung mới nha"
 date: 2025-12-17
 game: "Maze Escape"
 tags: ["godot", "maze", "prototype"]
-heroImage: "../../assets/new-maze-level-devlog02.jpg"
+heroImage: "../../assets/images/maze-escape-day-2-hero-img.jpg"
 ---
 
 ## **🧱 Devlog – Level 2 hình thành, Enemy chuẩn hóa & tile đầu tiên ra đời 🎉**
@@ -96,13 +96,3 @@ MazeEscape bắt đầu **“có mùi game” rồi**.
 - Tinh chỉnh độ khó Level 2
 - Playtest nhiều hơn
 - Viết tiếp devlog khi người chơi… bắt đầu chết nhiều hơn 😈
-
----
-
-Nếu bạn muốn:
-
-- Mình có thể **rút gọn bản này** cho homepage
-- Hoặc viết thêm **1 đoạn khoe Affinity + asset đầu tay** riêng
-- Hoặc chỉnh lại cho **giọng hài hước hơn nữa**
-
-👉 Cứ nói, mình chỉnh cho đúng “chất Goriant” 🎮✨
