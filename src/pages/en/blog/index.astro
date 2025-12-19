@@ -1,0 +1,81 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+import { Image } from "astro:assets";
+
+const posts = (await getCollection("blog-en"))
+  .filter((p) => !p.data.draft && p.data.date)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+const getSlug = (post: any) =>
+  post.id
+    .split("/")
+    .pop()
+    .replace(/\.(md|mdx)$/, "");
+---
+
+<BaseLayout lang="en">
+  <main class="mx-auto max-w-6xl px-6 pt-40 pb-24">
+    <header class="mb-10">
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-primary-pink">
+        Development Log
+      </h1>
+      <p class="mt-3 text-white/70 max-w-2xl">
+        A record of my game development journey (Godot), experiments,
+        design decisions, and lessons learned.
+      </p>
+    </header>
+
+    <div class="grid gap-6 md:grid-cols-2">
+      {
+        posts.map((post) => {
+          const slug = getSlug(post);
+          const cover = post.data.heroImage;
+
+          return (
+            <a
+              href={`/en/blog/${slug}`}
+              class="rounded-xl bg-white/5 backdrop-blur border border-white/10
+                   p-6 transition hover:bg-white/10"
+            >
+              {cover && (
+                <Image
+                  class="w-full aspect-[16/9] object-cover"
+                  alt={post.data.title}
+                  width={1020}
+                  height={510}
+                  src={cover}
+                />
+              )}
+              <p class="mt-4 mb-2 text-xs text-white/50">
+                {post.data.date.toLocaleDateString("en-US")} – {post.data.game}
+              </p>
+
+              <h2 class="mt-2 text-lg font-semibold text-white">
+                {post.data.title}
+              </h2>
+
+              {post.data.description && (
+                <p class="mt-2 text-sm text-white/70">
+                  {post.data.description}
+                </p>
+              )}
+
+              <div class="mt-4 flex flex-wrap gap-2">
+                {(post.data.tags ?? []).map((tag) => (
+                  <span class="text-xs rounded-full bg-white/10 border border-white/10 px-2 py-1 text-white/70">
+                    #{tag}
+                  </span>
+                ))}
+              </div>
+            </a>
+          );
+        })
+      }
+    </div>
+
+    {posts.length === 0 && (
+      <p class="text-white/60">No posts yet.</p>
+    )}
+  </main>
+</BaseLayout>

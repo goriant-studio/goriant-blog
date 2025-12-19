@@ -52,15 +52,15 @@ const blogVi = defineCollection({
 });
 
 /* --------------------------------------------------
- * (Optional – future) Blog tiếng Anh
+ * Blog tiếng Anh
  * -------------------------------------------------- */
-// const blogEn = defineCollection({
-//   loader: glob({
-//     base: "./src/content/blog-en",
-//     pattern: "**/*.{md,mdx}",
-//   }),
-//   schema: baseBlogSchema,
-// });
+const blogEn = defineCollection({
+  loader: glob({
+    base: "./src/content/blog-en",
+    pattern: "**/*.{md,mdx}",
+  }),
+  schema: baseBlogSchema,
+});
 
 /* --------------------------------------------------
  * Export collections
@@ -68,5 +68,5 @@ const blogVi = defineCollection({
 export const collections = {
   blog,     // có thể xoá sau nếu không dùng
   "blog-vi": blogVi,
-  // "blog-en": blogEn,
+  "blog-en": blogEn,
 };

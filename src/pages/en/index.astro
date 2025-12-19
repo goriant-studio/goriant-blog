@@ -1,0 +1,173 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout lang="en">
+  <!-- HERO / PHILOSOPHY -->
+  <section class="relative overflow-hidden pt-44 pb-24">
+    <!-- ambient lights (subtle) -->
+    <div
+      class="pointer-events-none absolute -top-40 -left-40 h-[520px] w-[520px]
+             rounded-full bg-purple-500/18 blur-[160px]"
+    >
+    </div>
+    <div
+      class="pointer-events-none absolute top-10 right-0 h-[460px] w-[460px]
+             rounded-full bg-blue-500/18 blur-[140px]"
+    >
+    </div>
+
+    <div class="relative mx-auto max-w-6xl px-6">
+      <p class="text-sm font-medium text-primary-pink">
+        🎮 Goriant — web games & game dev journal
+      </p>
+
+      <h1 class="mt-4 text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight text-white">
+        Hello everyone! 👋<br/>
+        I’m an <span class="text-primary-pink">indie game developer</span><br/>
+        <span class="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
+          sharing my entire game development journey
+        </span>
+      </h1>
+
+      <p class="mt-6 max-w-2xl text-base sm:text-lg text-white/70">
+        This is where I build games with
+        <span class="text-white/90 font-medium">Godot</span>,
+        publish <span class="text-white/90 font-medium">Web</span> builds
+        so everyone can try them quickly, and release
+        <span class="text-white/90 font-medium">Android</span> versions
+        once the gameplay is “ready”.
+        I document both what works and what I’m struggling with
+        — to learn faster and build better.
+      </p>
+
+      <div class="mt-10 flex flex-col sm:flex-row gap-4">
+        <a
+          href="/en/games"
+          class="inline-flex items-center justify-center rounded-full
+                 bg-white/10 backdrop-blur border border-white/15
+                 px-6 py-3 text-sm font-medium text-white
+                 hover:bg-white/15 transition"
+        >
+          View game list →
+        </a>
+
+        <a
+          href="/en/blog"
+          class="inline-flex items-center justify-center rounded-full
+                 bg-gradient-to-r from-purple-500 to-blue-500
+                 px-6 py-3 text-sm font-medium text-white
+                 hover:from-blue-500 hover:to-purple-500 transition"
+        >
+          Read the latest devlog
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRINCIPLES -->
+  <section class="relative pb-20">
+    <div class="mx-auto max-w-6xl px-6">
+      <h2 class="text-2xl font-semibold text-white">
+        🧠 Principles I follow
+      </h2>
+
+      <div class="mt-6 grid gap-6 md:grid-cols-3">
+        <div
+          class="rounded-2xl bg-white/5 backdrop-blur border border-white/10 p-6"
+        >
+          <p class="text-xl font-semibold text-white">Prototype early</p>
+          <p class="mt-2 sm:text-lg text-white/70">
+            Build something playable as early as possible to test the feel and
+            pacing.
+          </p>
+        </div>
+
+        <div
+          class="rounded-2xl bg-white/5 backdrop-blur border border-white/10 p-6"
+        >
+          <p class="text-xl font-semibold text-white">Small but consistent iteration</p>
+          <p class="mt-2 sm:text-lg text-white/70">
+            Each update focuses on 1–2 important things: controls, enemies,
+            levels, feedback.
+          </p>
+        </div>
+
+        <div
+          class="rounded-2xl bg-white/5 backdrop-blur border border-white/10 p-6"
+        >
+          <p class="text-xl font-semibold text-white">Build in public</p>
+          <p class="mt-2 sm:text-lg text-white/70">
+            Writing devlogs to capture decisions, lessons learned,
+            and experiments (including failures).
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT YOU'LL FIND HERE -->
+  <section class="relative pb-28">
+    <div class="mx-auto max-w-6xl px-6">
+      <h2 class="text-2xl font-semibold text-white">
+        📌 What will you find here?
+      </h2>
+
+      <div class="mt-6 grid gap-6 md:grid-cols-2">
+        <div
+          class="rounded-2xl bg-white/5 backdrop-blur border border-white/10 p-6"
+        >
+          <h3 class="text-xl font-semibold text-white">Game hub</h3>
+          <p class="mt-2 sm:text-lg text-white/70">
+            Each game has its own page: current status, short description,
+            web play link, and game-specific devlogs.
+          </p>
+          <a
+            href="/en/games"
+            class="mt-4 inline-flex text-sm font-medium text-white/80 hover:text-white transition"
+          >
+            Go to Games →
+          </a>
+        </div>
+
+        <div
+          class="rounded-2xl bg-white/5 backdrop-blur border border-white/10 p-6"
+        >
+          <h3 class="text-xl font-semibold text-white">Devlog</h3>
+          <p class="mt-2 sm:text-lg text-white/70">
+            A development journal organized by milestones: gameplay loops,
+            enemy design, level pacing, UX feedback, builds & releases.
+          </p>
+          <a
+            href="/en/blog"
+            class="mt-4 inline-flex text-sm font-medium text-white/80 hover:text-white transition"
+          >
+            Go to Devlog →
+          </a>
+        </div>
+      </div>
+
+      <div
+        class="mt-10 rounded-2xl bg-white/5 backdrop-blur border border-white/10 p-6"
+      >
+        <p class="text-sm text-primary-pink">
+          Main tools:
+          <span class="text-white/90 font-medium">Godot</span>.
+          Target builds:
+          <span class="text-white/90 font-medium">Web</span> (quick playtests) &
+          <span class="text-white/90 font-medium">Android</span> (when stable).
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTNOTE -->
+  <section class="pb-28">
+    <div class="mx-auto max-w-6xl px-6">
+      <p class="text-xs text-white/50">
+        If you have feedback on gameplay, balance, or UX,
+        feel free to leave it on the devlog or game pages — I read everything.
+      </p>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,5 +1,14 @@
 ---
-import t from "../../i18n/vi";
+import vi from "../../i18n/vi";
+import en from "../../i18n/en";
+
+const pathname = Astro.url.pathname;
+const lang = pathname.startsWith("/en") ? "en" : "vi";
+const t = lang === "en" ? en : vi;
+
+// remove /vi or /en from path
+const rawPath = pathname.replace(/^\/(vi|en)/, "") || "/";
+const switchTo = (target: "vi" | "en") => `/${target}${rawPath}`;
 ---
 
 <header
@@ -11,95 +20,88 @@ import t from "../../i18n/vi";
   <nav class="mx-auto max-w-7xl px-6 py-4">
     <div class="relative flex items-center">
       {/* LEFT: Logo */}
-<div class="flex">
-  <a
-    href="/vi"
-    class="flex items-center gap-3 font-bold text-4xl
-           bg-gradient-to-r from-yellow-300 to-amber-500
-           bg-clip-text text-transparent
-           drop-shadow-[0_1px_6px_rgba(255,255,255,0.5)]"
-  >
-    <span
-      class="text-3xl text-white
-
-             animate-soft-bounce"
-    >
-      🎮
-    </span>
-
-    <span>
-      {t.site.title}
-    </span>
-  </a>
-</div>
-
+      <div class="flex">
+        <a
+          href={`/${lang}`}
+          class="flex items-center gap-3 font-bold text-4xl
+                 bg-gradient-to-r from-yellow-300 to-amber-500
+                 bg-clip-text text-transparent
+                 drop-shadow-[0_1px_6px_rgba(255,255,255,0.5)]"
+        >
+          <span class="text-3xl text-white animate-soft-bounce">🎮</span>
+          <span>{t.site.title}</span>
+        </a>
+      </div>
 
       {/* CENTER: Navigation */}
       <ul
         class="absolute left-1/2 -translate-x-1/2
-              hidden md:flex gap-10 items-center
-              text-lg font-medium"
+               hidden md:flex gap-10 items-center
+               text-lg font-medium z-20"
       >
         <li>
           <a
-            href="/vi"
-            class="flex items-center gap-2 text-white/80 hover:text-white group"
+            href={`/${lang}`}
+            class="flex items-center gap-2 text-white/80 hover:text-white"
           >
-            <span
-              class="text-2xl animate-soft-bounce group-hover:animate-bounce"
-            >
-              🏠
-            </span>
-            {t.nav.home}
+            🏠 {t.nav.home}
           </a>
         </li>
-
         <li>
           <a
-            href="/vi/games"
-            class="flex items-center gap-2 text-white/80 hover:text-white group"
+            href={`/${lang}/games`}
+            class="flex items-center gap-2 text-white/80 hover:text-white"
           >
-            <span
-              class="text-2xl animate-soft-bounce group-hover:animate-bounce"
-            >
-              🎮
-            </span>
-            {t.nav.games}
+            🎮 {t.nav.games}
           </a>
         </li>
-
         <li>
           <a
-            href="/vi/blog"
-            class="flex items-center gap-2 text-white/80 hover:text-white group"
+            href={`/${lang}/blog`}
+            class="flex items-center gap-2 text-white/80 hover:text-white"
           >
-            <span
-              class="text-2xl animate-soft-bounce group-hover:animate-bounce"
-            >
-              📝
-            </span>
-            {t.nav.blog}
+            📝 {t.nav.blog}
           </a>
         </li>
-
-        <!-- <li>
-          <a
-            href="/vi/faq"
-            class="flex items-center gap-2 text-white/80 hover:text-white group"
-          >
-            <span
-              class="text-2xl animate-soft-bounce group-hover:animate-bounce"
-            >
-              ❓
-            </span>
-            {t.nav.faq}
-          </a>
-        </li> -->
       </ul>
 
-      {/* RIGHT: Spacer (future CTA / lang switch) */}
-      <div class="flex-1 flex justify-end">
-        {/* empty for now */}
+      {/* RIGHT: Language switch */}
+      <div class="flex-1 flex justify-end relative">
+        <details class="group relative">
+          <summary
+            class="flex items-center gap-2 cursor-pointer
+                   rounded-full border border-white/15
+                   bg-white/5 px-4 py-2 text-sm text-white/80
+                   hover:text-white hover:bg-white/10
+                   list-none"
+          >
+            🌐 {lang.toUpperCase()}
+            <span class="transition group-open:rotate-180">▾</span>
+          </summary>
+
+          <div
+            class="absolute right-0 mt-2 w-28 rounded-xl
+                   bg-[#0f172a] border border-white/10
+                   shadow-lg overflow-hidden"
+          >
+            <a
+              href={switchTo("vi")}
+              class={`block px-4 py-2 text-sm hover:bg-white/10 ${
+                lang === "vi" ? "text-primary-pink" : "text-white/80"
+              }`}
+            >
+              🇻🇳 Tiếng Việt
+            </a>
+            <a
+              href={switchTo("en")}
+              class={`block px-4 py-2 text-sm hover:bg-white/10 ${
+                lang === "en" ? "text-primary-pink" : "text-white/80"
+              }`}
+            >
+              🇺🇸 English
+            </a>
+          </div>
+        </details>
       </div>
     </div>
   </nav>
