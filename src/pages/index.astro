@@ -1,8 +1,66 @@
 ---
-return new Response(null, {
-  status: 301,
-  headers: {
-    Location: "/en",
-  },
-});
+import BaseLayout from "../layouts/BaseLayout.astro";
 ---
+
+<BaseLayout lang="en">
+  <main
+    class="min-h-screen flex flex-col items-center justify-center
+           bg-gradient-to-br from-[#0f172a] via-[#111827] to-black
+           text-white relative overflow-hidden"
+  >
+    <!-- ambient glow -->
+    <div class="absolute -top-40 -left-40 w-[500px] h-[500px] bg-purple-500/20 rounded-full blur-[140px]"></div>
+    <div class="absolute bottom-0 right-0 w-[420px] h-[420px] bg-blue-500/20 rounded-full blur-[120px]"></div>
+
+    <!-- CONTENT -->
+    <div class="relative z-10 text-center px-6">
+      <div class="flex items-center justify-center gap-4 text-6xl mb-6">
+        🎮
+        <span
+          class="font-extrabold bg-gradient-to-r from-yellow-300 to-amber-500
+                 bg-clip-text text-transparent drop-shadow-lg"
+        >
+          Goriant
+        </span>
+      </div>
+
+      <p class="text-lg text-white/80 max-w-xl mx-auto">
+        Indie game development journey.<br />
+        Play prototypes. Read devlogs. Build in public.
+      </p>
+
+      <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          href="/en"
+          class="inline-flex items-center justify-center rounded-full
+                 bg-gradient-to-r from-purple-500 to-blue-500
+                 px-8 py-4 text-base font-semibold
+                 hover:from-blue-500 hover:to-purple-500 transition"
+        >
+          ▶ Enter (EN)
+        </a>
+
+        <a
+          href="/vi"
+          class="inline-flex items-center justify-center rounded-full
+                 bg-white/10 border border-white/15
+                 px-8 py-4 text-base font-medium text-white/90
+                 hover:bg-white/20 transition"
+        >
+          🇻🇳 Vào trang (VI)
+        </a>
+      </div>
+
+      <p class="mt-10 text-xs text-white/50">
+        Redirecting to English version…
+      </p>
+    </div>
+
+    <!-- auto redirect -->
+    <script>
+      setTimeout(() => {
+        window.location.href = "/en";
+      }, 5000);
+    </script>
+  </main>
+</BaseLayout>
