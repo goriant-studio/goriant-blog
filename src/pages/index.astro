@@ -1,9 +1,10 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
+import "../styles/global.css";
 ---
 
-<BaseLayout lang="en">
-  <main
+<html>
+  <body>
+<main
     class="min-h-screen flex flex-col items-center justify-center
            bg-gradient-to-br from-[#0f172a] via-[#111827] to-black
            text-white relative overflow-hidden"
@@ -63,4 +64,5 @@ import BaseLayout from "../layouts/BaseLayout.astro";
       }, 5000);
     </script>
   </main>
-</BaseLayout>
+  </body>
+</html>
