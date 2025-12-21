@@ -4,7 +4,7 @@ description: "Thêm mê cung mới nha"
 date: 2025-12-17
 game: "Maze Escape"
 tags: ["godot", "maze", "prototype"]
-heroImage: "../../assets/images/maze-escape-day-2-hero-img.jpg"
+heroImage: "../../assets/images/maze-escape-devlog02.jpg"
 ---
 
 ## **🧱 Devlog – Level 2 hình thành, Enemy chuẩn hóa & tile đầu tiên ra đời 🎉**

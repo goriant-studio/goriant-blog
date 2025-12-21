@@ -4,7 +4,7 @@ description: "Keep momentum, keep motivation"
 date: 2025-12-17
 game: "Maze Escape"
 tags: ["godot", "maze", "prototype"]
-heroImage: "../../assets/images/maze-escape-day-2-hero-img.jpg"
+heroImage: "../../assets/images/maze-escape-devlog03.png"
 ---
 
 Hôm nay mình không làm quá nhiều thứ mới, nhưng là một ngày **giữ được momentum** cho MazeEscape.

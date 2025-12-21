@@ -4,9 +4,8 @@ description: "Initial gameplay, enemies, and maze layout"
 date: 2025-12-10
 game: "Maze Escape"
 tags: ["godot", "maze", "prototype"]
-heroImage: "../../assets/maze-escape-devlog01.jpg"
+heroImage: "../../assets/images/maze-escape-devlog01.jpg"
 ---
-
 
 # **🎮 Dev Log #1 – The Journey of Creating**
 
@@ -108,8 +107,7 @@ Honestly… **there were many bugs** 😅
 
 But every time I fixed one issue, I felt:
 
-> “Wow, I’m really making a game.”
-> 
+![Wow, I’m really making a game](/images/wow-i-am-really-making-a-game.png)
 
 ---
 

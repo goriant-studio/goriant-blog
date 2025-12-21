@@ -1,7 +1,8 @@
 export default {
   site: {
     title: "Goriant",
-    tagline: "Hành trình làm game indie",
+    tagline: "Một indie game dev xây dựng game theo sở thích.",
+    subline: "Vấn đề thật. Cách sửa thật. Tiến độ thật.",
   },
 
   nav: {
@@ -36,5 +37,12 @@ export default {
   blog: {
     title: "Nhật ký phát triển",
     readVi: "Đọc tiếng Việt",
+  },
+  footer: {
+    explore: "Khám phá",
+    home: "Trang chủ",
+    games: "Game",
+    blog: "Devlog",
+    meta: "Dự án indie · Xây dựng bằng Godot & Astro",
   },
 };
