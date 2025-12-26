@@ -1,6 +1,6 @@
 ---
-title: "Devlog #02 – Level 2 hình thành, Enemy chuẩn hóa & tile đầu tiên ra đời 🎉"
-description: "Thêm mê cung mới nha"
+title: "Devlog #02 – Level 2 Complete, Standardize Enemy & First Tile Was Born 🎉"
+description: "Level 2, Tilemap"
 date: 2025-12-17
 game: "Maze Escape"
 tags: ["godot", "maze", "prototype"]

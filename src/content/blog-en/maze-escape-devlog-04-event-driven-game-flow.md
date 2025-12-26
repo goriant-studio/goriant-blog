@@ -1,6 +1,6 @@
 ---
 title: "Devlog #04 – 🎮 Why I Stopped Using BaseLevel Inheritance for Game Flow"
-description: "Thêm mê cung mới nha"
+description: "Singleton over Inheritance"
 date: 2025-12-21
 game: "Maze Escape"
 tags: ["godot", "maze", "prototype"]
