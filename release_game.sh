@@ -1,0 +1,2 @@
+/d/applications/Godot_v4.5/Godot_v4.5.1-stable_win64_console.exe --headless --export-release "WebDebug" --path /d/Development/goriant/goriant-games-oss/godot4/maze-escape /d/Development/goriant/goriant-blog/public/games/Maze/index.html
+bash quick_deploy.sh
