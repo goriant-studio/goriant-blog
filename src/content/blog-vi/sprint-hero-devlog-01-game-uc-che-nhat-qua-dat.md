@@ -61,3 +61,9 @@ Tôi biết hành trình phía trước còn dài và đầy thử thách. Nhưn
 Cứ đợi đi,
 
 sản phẩm tiếp theo sẽ dựa trên nguyên lý game — nhưng giải quyết một vấn đề lớn của xã hội.
+
+Tôi chưa nói được nó là gì…
+
+nhưng hẹn gặp lại các bạn trong chương kế tiếp.
+
+Dù thành công hay thất bại, tôi tự hào vì mình đã dám nghĩ, dám làm.
