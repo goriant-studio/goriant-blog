@@ -1,0 +1,77 @@
+---
+import BaseLayout from "../../../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout lang="vi">
+  <main class="mx-auto max-w-7xl px-6 pt-40 pb-28">
+    <a href="/vi/games" class="text-sm text-white/60 hover:text-white">
+      ← Quay lại Games
+    </a>
+
+    <header class="mt-6">
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-white">
+        Sprint Hero
+      </h1>
+      <p class="mt-3 max-w-2xl text-white/70">
+        Sprint Hero là một game tốc độ cao, nơi luật chơi được xây dựng xoay quanh
+        phản xạ và khả năng quan sát trong tích tắc. Đây là một dự án indie
+        được chia sẻ lại trên Goriant như một phần của series game cộng đồng.
+      </p>
+    </header>
+
+    <section class="mt-10 grid gap-8 md:grid-cols-2">
+      <div>
+        <h2 class="text-lg font-semibold text-white">
+          Câu chuyện phía sau
+        </h2>
+        <ul class="mt-3 text-sm text-white/70 space-y-2">
+          <li>• Game được làm từ con số 0, không dùng Unity hay engine sẵn</li>
+          <li>• Luật chơi sinh ra từ quan sát thực tế (chạy, phản xạ, quyết định nhanh)</li>
+          <li>• Tác giả tự học vẽ asset dù không có nền tảng mỹ thuật</li>
+          <li>• Game hoàn thành nhưng bộc lộ giới hạn về chiều sâu gameplay</li>
+        </ul>
+
+        <div class="mt-6 flex gap-4">
+          <a
+            href="/vi/games/sprint-hero/devlog"
+            class="inline-flex items-center justify-center rounded-full
+                 bg-gradient-to-r from-purple-500 to-blue-500
+                 px-6 py-3 text-sm font-medium text-white
+                 hover:from-blue-500 hover:to-purple-500 transition"
+          >
+            Đọc dev story →
+          </a>
+        </div>
+
+        <p class="mt-4 text-xs text-white/50">
+          * Sprint Hero là game của một người bạn trong cộng đồng indie.
+          Goriant chia sẻ lại dự án này vì giá trị học hỏi và hành trình làm game
+          chân thật phía sau nó.
+        </p>
+      </div>
+
+      <div
+        class="rounded-xl bg-white/10 border border-white/10 p-4 text-white/60"
+      >
+        <a
+            href="https://www.youtube.com/watch?v=DQizFJ7mBK4"
+            target="_blank"
+            rel="noopener"
+            class="inline-flex items-center justify-center rounded-full
+             bg-gradient-to-r from-red-500 to-red-600
+             px-5 py-2 text-sm font-medium text-white
+             hover:from-red-600 hover:to-red-700 transition"
+          >
+            ▶ Watch Gameplay
+          </a>
+        <img
+          src="/images/sprint-hero-01.webp"
+          alt="Sprint Hero gameplay preview"
+          class="mt-4 aspect-video w-full rounded-xl
+             object-cover border border-white/10"
+          loading="lazy"
+        />
+      </div>
+    </section>
+  </main>
+</BaseLayout>
