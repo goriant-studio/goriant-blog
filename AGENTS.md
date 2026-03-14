@@ -35,6 +35,7 @@ public/
 
 ## Skills
 
+- **Blog Best Practices** (`.agents/skills/blog-best-practices/SKILL.md`) — Astro blog styling, content, and component best practices. Always refer to this when creating or editing blog pages, Tailwind CSS styles, or Markdown content.
 - **Three.js Best Practices** (`.agents/skills/three-best-practices/SKILL.md`) — Performance optimization and best practices for Three.js. Always consult when writing, reviewing, or optimizing any Three.js / 3D code (scenes, WebGL/WebGPU, geometries, materials, textures, lighting, shaders, TSL).
 
 ## Available Workflows
