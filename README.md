@@ -1,62 +1,50 @@
-# Astro Starter Kit: Blog
+# goriant-blog
 
-```sh
-npm create astro@latest -- --template blog
+Personal blog for **[goriant.com](https://goriant.com)** — an indie game dev journey. Built with Astro + Tailwind CSS.
+
+## Stack
+
+- **[Astro 5](https://astro.build)** — static site generator
+- **Tailwind CSS v4** — styling via `@tailwindcss/vite`
+- **MDX** — rich markdown with components
+- **Bilingual** — content in both `/blog-en` (English) and `/blog-vi` (Vietnamese)
+- **RSS + Sitemap** — auto-generated
+
+## Project Structure
+
+```
+src/
+├── components/       # Shared UI components
+├── content/
+│   ├── blog-en/      # English posts
+│   └── blog-vi/      # Vietnamese posts
+├── layouts/          # Page layouts
+├── pages/
+│   ├── en/           # English routes
+│   └── vi/           # Vietnamese routes
+├── i18n/             # Translations
+└── consts.ts         # Site title & description
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Commands
 
-Features:
+| Command           | Action                              |
+| :---------------- | :---------------------------------- |
+| `npm install`     | Install dependencies                |
+| `npm run dev`     | Dev server at `localhost:4321`      |
+| `npm run build`   | Build to `./dist/`                  |
+| `npm run preview` | Preview production build locally    |
 
-- ✅ Minimal styling (make it your own!)
-- ✅ 100/100 Lighthouse performance
-- ✅ SEO-friendly with canonical URLs and OpenGraph data
-- ✅ Sitemap support
-- ✅ RSS Feed support
-- ✅ Markdown & MDX support
+## Post Frontmatter
 
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-├── public/
-├── src/
-│   ├── components/
-│   ├── content/
-│   ├── layouts/
-│   └── pages/
-├── astro.config.mjs
-├── README.md
-├── package.json
-└── tsconfig.json
+```yaml
+---
+title: "My Post"
+date: 2024-01-01
+description: "Optional description"
+game: "maze-escape"   # optional — links post to a game
+tags: ["devlog"]      # optional
+draft: false          # optional, defaults to false
+heroImage: ./img.png  # optional
+---
 ```
-
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-The `src/content/` directory contains "collections" of related Markdown and MDX documents. Use `getCollection()` to retrieve posts from `src/content/blog/`, and type-check your frontmatter using an optional schema. See [Astro's Content Collections docs](https://docs.astro.build/en/guides/content-collections/) to learn more.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Check out [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
-
-## Credit
-
-This theme is based off of the lovely [Bear Blog](https://github.com/HermanMartinus/bearblog/).
