@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" class="dark">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
@@ -35,6 +36,7 @@
 
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body class="m-0 p-0 overflow-hidden select-none bg-dark-bg dark:bg-dark-bg touch-none">
 
   <!-- Three.js Canvas -->
@@ -100,17 +102,22 @@
   <div id="dpad" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-10 hidden">
     <div class="grid grid-cols-3 gap-1.5" style="width:160px;height:160px;">
       <div></div>
-      <button class="dpad-btn rounded-xl flex items-center justify-center text-xl" data-dir="up" aria-label="Up">▲</button>
+      <button class="dpad-btn rounded-xl flex items-center justify-center text-xl" data-dir="up"
+        aria-label="Up">▲</button>
       <div></div>
-      <button class="dpad-btn rounded-xl flex items-center justify-center text-xl" data-dir="left" aria-label="Left">◀</button>
+      <button class="dpad-btn rounded-xl flex items-center justify-center text-xl" data-dir="left"
+        aria-label="Left">◀</button>
       <div></div>
-      <button class="dpad-btn rounded-xl flex items-center justify-center text-xl" data-dir="right" aria-label="Right">▶</button>
+      <button class="dpad-btn rounded-xl flex items-center justify-center text-xl" data-dir="right"
+        aria-label="Right">▶</button>
       <div></div>
-      <button class="dpad-btn rounded-xl flex items-center justify-center text-xl" data-dir="down" aria-label="Down">▼</button>
+      <button class="dpad-btn rounded-xl flex items-center justify-center text-xl" data-dir="down"
+        aria-label="Down">▼</button>
       <div></div>
     </div>
   </div>
 
   <script type="module" src="game.js"></script>
 </body>
+
 </html>
