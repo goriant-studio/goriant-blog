@@ -8,7 +8,7 @@ metadata:
   three-version: "0.182.0+"
 ---
 
-// turbo all
+// turbo-all
 
 # Three.js Best Practices
 
