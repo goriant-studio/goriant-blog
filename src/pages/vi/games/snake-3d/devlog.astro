@@ -1,0 +1,71 @@
+---
+import BaseLayout from "../../../../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+import { Image } from "astro:assets";
+
+const posts = (await getCollection("blog-vi"))
+  .filter((p) => p.data.game === "Snake3D")
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+---
+
+<BaseLayout lang="vi">
+  <main class="mx-auto max-w-7xl px-6 pt-40 pb-28">
+    <a href="/vi/games/snake-3d" class="text-sm text-white/60 hover:text-white">
+      ← Quay lại Snake3D
+    </a>
+
+    <header class="mt-6 mb-8">
+      <h1 class="text-2xl font-bold text-primary-pink">
+        Devlog – Snake3D
+      </h1>
+      <p class="mt-2 text-white/70 text-sm">
+        Nhật ký phát triển riêng cho Snake3D.
+      </p>
+    </header>
+
+    <div class="grid gap-6 md:grid-cols-2">
+      {posts.map((post) => {
+        const slug = post.id
+          .split("/")
+          .pop()
+          ?.replace(/\.(md|mdx)$/, "");
+        const cover = post.data.heroImage;
+
+        return (
+          <a
+            href={`/vi/blog/${slug}`}
+            class="rounded-xl bg-white/5 border border-white/10 p-6 hover:bg-white/10 transition"
+          >
+            {cover && (
+              <Image
+                class="w-full aspect-[16/9] object-cover"
+                alt={post.data.title}
+                width={1020}
+                height={510}
+                src={cover}
+              />
+            )}
+
+            <p class="text-xs text-white/50">
+              {post.data.date.toLocaleDateString("vi-VN")}
+            </p>
+
+            <h2 class="mt-2 text-lg font-semibold text-white">
+              {post.data.title}
+            </h2>
+
+            {post.data.description && (
+              <p class="mt-2 text-sm text-white/70">
+                {post.data.description}
+              </p>
+            )}
+          </a>
+        );
+      })}
+    </div>
+
+    {posts.length === 0 && (
+      <p class="text-white/60">Chưa có devlog nào cho game này.</p>
+    )}
+  </main>
+</BaseLayout>

@@ -1,0 +1,62 @@
+---
+import BaseLayout from "../../../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout lang="vi">
+  <main class="mx-auto max-w-7xl px-6 pt-40 pb-28">
+    <a href="/vi/games" class="text-sm text-white/60 hover:text-white">
+      ← Quay lại Games
+    </a>
+
+    <header class="mt-6">
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-white">Snake3D</h1>
+      <p class="mt-3 max-w-2xl text-white/70">
+        Snake3D là phiên bản 3D hiện đại của game rắn săn mồi kinh điển, xây
+        dựng bằng Three.js. Di chuyển trong không gian 3D, ăn mồi, lớn dần và
+        đừng để đâm vào chính mình!
+      </p>
+    </header>
+
+    <section class="mt-10 grid gap-8 md:grid-cols-2">
+      <div>
+        <h2 class="text-lg font-semibold text-white">Trạng thái hiện tại</h2>
+        <ul class="mt-3 text-sm text-white/70 space-y-1">
+          <li>• Prototype web đã chơi được</li>
+          <li>• Môi trường 3D với Three.js</li>
+          <li>• Cơ chế rắn săn mồi cổ điển trong không gian 3D</li>
+        </ul>
+
+        <div class="mt-6 flex gap-4">
+          <a
+            href="/vi/games/snake-3d/play"
+            class="rounded-full bg-green-600 px-5 py-2 text-sm text-white"
+          >
+            ▶ Chơi bản Web
+          </a>
+          <a
+            href="/vi/games/snake-3d/devlog"
+            class="inline-flex items-center justify-center rounded-full
+                 bg-gradient-to-r from-green-500 to-teal-500
+                 px-6 py-3 text-sm font-medium text-white
+                 hover:from-teal-500 hover:to-green-500 transition"
+          >
+            Xem devlog →
+          </a>
+        </div>
+      </div>
+
+      <div
+        class="rounded-xl bg-white/10 border border-white/10 p-4 text-white/60"
+      >
+        Preview gameplay (ảnh / gif / video sau)
+        <div
+          class="mb-4 aspect-video w-full rounded-xl flex items-center justify-center
+             bg-gradient-to-br from-green-900/40 to-teal-900/40 border border-white/10
+             text-4xl"
+        >
+          🐍
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

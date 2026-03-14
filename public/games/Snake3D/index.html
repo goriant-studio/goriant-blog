@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <title>Snake 3D — Goriant</title>
+  <meta name="description" content="A 3D Snake game built with Three.js — Goriant indie game dev" />
+
+  <!-- Tailwind CSS v4 CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <style type="text/tailwindcss">
+    @theme {
+      --color-neon-green: #39ff14;
+      --color-neon-pink: #ff6ec7;
+      --color-neon-cyan: #00fff7;
+      --color-dark-bg: #0a0a0f;
+      --color-dark-card: rgba(20, 20, 35, 0.85);
+      --color-light-bg: #f0f4f8;
+      --color-light-card: rgba(255, 255, 255, 0.85);
+    }
+  </style>
+
+  <!-- Three.js Import Map (setup-use-import-maps) -->
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.172.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.172.0/examples/jsm/"
+    }
+  }
+  </script>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="m-0 p-0 overflow-hidden select-none bg-dark-bg dark:bg-dark-bg touch-none">
+
+  <!-- Three.js Canvas -->
+  <canvas id="gameCanvas" class="block w-full h-full"></canvas>
+
+  <!-- HUD: Score -->
+  <div id="hud" class="fixed top-4 left-4 z-10 flex flex-col gap-2">
+    <div class="hud-panel flex items-center gap-2 px-4 py-2 rounded-xl">
+      <span class="text-lg">🍎</span>
+      <span id="scoreValue" class="font-bold text-xl tabular-nums">0</span>
+    </div>
+    <div class="hud-panel flex items-center gap-2 px-3 py-1.5 rounded-lg">
+      <span class="text-sm">🏆</span>
+      <span id="bestValue" class="font-semibold text-sm tabular-nums">0</span>
+    </div>
+  </div>
+
+  <!-- Theme Toggle -->
+  <button id="themeToggle"
+    class="fixed top-4 right-4 z-10 hud-panel w-11 h-11 rounded-xl flex items-center justify-center text-2xl cursor-pointer transition-transform hover:scale-110 active:scale-95 border-0"
+    aria-label="Toggle theme">
+    🌙
+  </button>
+
+  <!-- Pause Overlay -->
+  <div id="pauseOverlay" class="fixed inset-0 z-20 items-center justify-center bg-black/40 backdrop-blur-sm hidden">
+    <div class="text-center">
+      <div class="text-6xl mb-4 animate-pulse">⏸️</div>
+      <p class="text-xl font-semibold text-white">PAUSED</p>
+      <p class="text-sm text-white/60 mt-2">Press SPACE or tap to resume</p>
+    </div>
+  </div>
+
+  <!-- Game Over Overlay -->
+  <div id="gameOverOverlay" class="fixed inset-0 z-30 items-center justify-center bg-black/50 backdrop-blur-md hidden">
+    <div class="overlay-card text-center p-8 rounded-2xl max-w-xs w-full mx-4">
+      <div class="text-5xl mb-3">💀</div>
+      <h2 class="text-2xl font-bold mb-1 overlay-title">GAME OVER</h2>
+      <p class="text-4xl font-black my-4 tabular-nums score-glow" id="finalScore">0</p>
+      <p class="text-sm opacity-70 mb-6" id="bestScoreLabel">Best: 0</p>
+      <button id="restartBtn"
+        class="action-btn px-8 py-3 rounded-xl font-bold text-lg cursor-pointer transition-all hover:scale-105 active:scale-95 w-full border-0">
+        🔄 RESTART
+      </button>
+      <p class="text-xs opacity-60 mt-3">or press R</p>
+    </div>
+  </div>
+
+  <!-- Start Screen -->
+  <div id="startOverlay" class="fixed inset-0 z-30 flex items-center justify-center bg-black/50 backdrop-blur-md">
+    <div class="overlay-card text-center p-8 rounded-2xl max-w-xs w-full mx-4">
+      <div class="text-6xl mb-3 animate-bounce">🐍</div>
+      <h2 class="text-3xl font-black mb-2 overlay-title">SNAKE 3D</h2>
+      <p class="text-sm opacity-70 mb-6">Arrow keys / WASD / Swipe</p>
+      <button id="startBtn"
+        class="action-btn px-8 py-3 rounded-xl font-bold text-lg cursor-pointer transition-all hover:scale-105 active:scale-95 w-full border-0">
+        🎮 START
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile D-Pad (hidden on desktop) -->
+  <div id="dpad" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-10 hidden">
+    <div class="grid grid-cols-3 gap-1.5" style="width:160px;height:160px;">
+      <div></div>
+      <button class="dpad-btn rounded-xl flex items-center justify-center text-xl" data-dir="up" aria-label="Up">▲</button>
+      <div></div>
+      <button class="dpad-btn rounded-xl flex items-center justify-center text-xl" data-dir="left" aria-label="Left">◀</button>
+      <div></div>
+      <button class="dpad-btn rounded-xl flex items-center justify-center text-xl" data-dir="right" aria-label="Right">▶</button>
+      <div></div>
+      <button class="dpad-btn rounded-xl flex items-center justify-center text-xl" data-dir="down" aria-label="Down">▼</button>
+      <div></div>
+    </div>
+  </div>
+
+  <script type="module" src="game.js"></script>
+</body>
+</html>

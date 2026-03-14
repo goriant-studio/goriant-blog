@@ -1,0 +1,33 @@
+---
+import BaseLayout from "../../../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout lang="en">
+  <main class="mx-auto max-w-7xl px-6 pt-40 pb-28">
+    <a href="/en/games/snake-3d" class="text-sm text-white/60 hover:text-white">
+      ← Back to Snake3D
+    </a>
+
+    <h1 class="mt-6 text-2xl font-bold text-white">
+      Play Snake3D (Web Prototype)
+    </h1>
+
+    <p class="mt-3 max-w-2xl text-white/70 text-sm">
+      This is the web version built with Three.js.
+      Desktop is recommended for the best experience.
+    </p>
+
+    <div class="mt-8 aspect-video rounded-xl overflow-hidden border border-white/10 bg-black">
+      <!-- Snake3D embed -->
+      <iframe
+        src="/games/Snake3D/index.html"
+        class="w-full h-full"
+        loading="lazy"
+      ></iframe>
+    </div>
+
+    <p class="mt-4 text-xs text-white/50">
+      If you encounter issues, try reloading the page or using a different browser.
+    </p>
+  </main>
+</BaseLayout>
