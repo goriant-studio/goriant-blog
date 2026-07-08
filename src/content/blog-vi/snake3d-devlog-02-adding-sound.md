@@ -3,7 +3,7 @@ title: "Nhật ký Phát triển #02 – Snake3D: Sự Im Lặng Đáng Sợ (Th
 description: "Một chú rắn 3D ăn những khối vuông phát sáng trong sự tĩnh lặng tuyệt đối? Không thể nào! Hé lộ bản cập nhật âm thanh sắp tới cho Snake3D."
 date: 2026-03-15
 game: "Snake3D"
-heroImage: "/images/snake3d-sound.webp"
+heroImage: "../../assets/images/snake3d-sound.png"
 tags: ["threejs", "snake", "3d", "web-game", "sound", "audio"]
 ---
 

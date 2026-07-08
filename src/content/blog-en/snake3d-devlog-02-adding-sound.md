@@ -3,7 +3,7 @@ title: "Devlog #02 – Snake3D: The Silence is Deafening (Let's Add Sound!)"
 description: "A 3D snake eating glowing cubes in complete silence? Not on my watch! Sneak peek into the upcoming audio update for Snake3D."
 date: 2026-03-15
 game: "Snake3D"
-heroImage: "/images/snake3d-sound.webp"
+heroImage: "../../assets/images/snake3d-sound.png"
 tags: ["threejs", "snake", "3d", "web-game", "sound", "audio"]
 ---
 
