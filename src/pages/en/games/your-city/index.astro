@@ -18,36 +18,33 @@ import BaseLayout from "../../../../layouts/BaseLayout.astro";
 
     <section class="mt-10 grid gap-8 md:grid-cols-2">
       <div>
-        <h2 class="text-lg font-semibold text-white">Current status</h2>
+        <h2 class="text-lg font-semibold text-white">Features</h2>
         <ul class="mt-3 text-sm text-white/70 space-y-1">
-          <li>• Early development</li>
           <li>• Isometric grid map with Phaser 3</li>
           <li>• Road & zone placement system</li>
-          <li>• Source code coming soon</li>
+          <li>• Building construction & upgrades</li>
+          <li>• AI-generated isometric art</li>
         </ul>
 
         <div class="mt-6 flex gap-4">
-          <div
+          <a
+            href="/en/games/your-city/play"
             class="inline-flex items-center justify-center rounded-full
                  bg-gradient-to-r from-amber-500 to-orange-500
-                 px-6 py-3 text-sm font-medium text-white"
+                 px-6 py-3 text-sm font-medium text-white
+                 hover:from-amber-400 hover:to-orange-400 transition-all"
           >
-            🚧 Coming Soon
-          </div>
+            🎮 Play Now
+          </a>
         </div>
       </div>
 
-      <div
-        class="rounded-xl bg-white/10 border border-white/10 p-4 text-white/60"
-      >
-        Gameplay preview (images / GIFs / video coming soon)
-        <div
-          class="mb-4 aspect-video w-full rounded-xl flex items-center justify-center
-             bg-gradient-to-br from-amber-900/40 to-orange-900/40 border border-white/10
-             text-4xl"
-        >
-          🏙️
-        </div>
+      <div class="rounded-xl overflow-hidden border border-white/10 bg-black">
+        <iframe
+          src="https://your-city.goriant.com"
+          class="w-full aspect-video"
+          loading="lazy"
+        ></iframe>
       </div>
     </section>
   </main>
