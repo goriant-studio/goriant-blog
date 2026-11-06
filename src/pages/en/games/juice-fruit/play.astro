@@ -30,8 +30,15 @@ import BaseLayout from "../../../../layouts/BaseLayout.astro";
 
     <div
       id="game-wrapper"
-      class="mt-8 aspect-video rounded-xl overflow-hidden border border-white/10 bg-black"
+      class="relative mt-8 aspect-video rounded-xl overflow-hidden border border-white/10 bg-black"
     >
+      <button
+        id="exit-fullscreen-btn"
+        class="hidden absolute top-3 right-3 z-50 rounded-full bg-black/70 hover:bg-black/90 border border-white/20 px-3 py-1.5 text-xs font-medium text-white backdrop-blur transition cursor-pointer"
+      >
+        ✕ Exit Fullscreen
+      </button>
+
       <!-- JuiceFruite embed -->
       <iframe
         id="game-iframe"
@@ -48,19 +55,61 @@ import BaseLayout from "../../../../layouts/BaseLayout.astro";
     </p>
   </main>
 
+  <style>
+    .ios-fullscreen {
+      position: fixed !important;
+      inset: 0 !important;
+      z-index: 9999 !important;
+      width: 100vw !important;
+      height: 100dvh !important;
+      margin: 0 !important;
+      border-radius: 0 !important;
+      border: none !important;
+      aspect-ratio: unset !important;
+    }
+  </style>
+
   <script>
     const btn = document.getElementById("fullscreen-btn");
-    const wrapper = document.getElementById("game-wrapper");
+    const exitBtn = document.getElementById("exit-fullscreen-btn");
+    const wrapper = document.getElementById("game-wrapper") as any;
 
-    btn?.addEventListener("click", () => {
-      if (!document.fullscreenElement) {
-        wrapper?.requestFullscreen().catch((err) => {
-          console.error(`Error attempting to enable fullscreen: ${err.message}`);
+    function togglePseudoFullscreen(force?: boolean) {
+      const isPseudo = wrapper?.classList.toggle("ios-fullscreen", force);
+      if (isPseudo) {
+        exitBtn?.classList.remove("hidden");
+        document.body.style.overflow = "hidden";
+      } else {
+        exitBtn?.classList.add("hidden");
+        document.body.style.overflow = "";
+      }
+    }
+
+    function enterFullscreen() {
+      const doc = document as any;
+      if (doc.fullscreenElement || doc.webkitFullscreenElement) {
+        if (doc.exitFullscreen) doc.exitFullscreen();
+        else if (doc.webkitExitFullscreen) doc.webkitExitFullscreen();
+        return;
+      }
+
+      if (wrapper?.classList.contains("ios-fullscreen")) {
+        togglePseudoFullscreen(false);
+        return;
+      }
+
+      const req = wrapper?.requestFullscreen || wrapper?.webkitRequestFullscreen;
+      if (req) {
+        Promise.resolve(req.call(wrapper)).catch(() => {
+          togglePseudoFullscreen(true);
         });
       } else {
-        document.exitFullscreen();
+        togglePseudoFullscreen(true);
       }
-    });
+    }
+
+    btn?.addEventListener("click", enterFullscreen);
+    exitBtn?.addEventListener("click", () => togglePseudoFullscreen(false));
   </script>
 </BaseLayout>
 
