@@ -8,20 +8,37 @@ import BaseLayout from "../../../../layouts/BaseLayout.astro";
       ← Back to Juice Fruit
     </a>
 
-    <h1 class="mt-6 text-2xl font-bold text-white">
-      Play Juice Fruit (Web Prototype)
-    </h1>
+    <div class="mt-6 flex flex-wrap items-center justify-between gap-4">
+      <div>
+        <h1 class="text-2xl font-bold text-white">
+          Play Juice Fruit (Web Prototype)
+        </h1>
 
-    <p class="mt-3 max-w-2xl text-white/70 text-sm">
-      This is the web version built with Phaser 3.
-      Flip matching card pairs before time runs out!
-    </p>
+        <p class="mt-3 max-w-2xl text-white/70 text-sm">
+          This is the web version built with Phaser 3.
+          Flip matching card pairs before time runs out!
+        </p>
+      </div>
 
-    <div class="mt-8 aspect-video rounded-xl overflow-hidden border border-white/10 bg-black">
+      <button
+        id="fullscreen-btn"
+        class="inline-flex items-center gap-2 rounded-full bg-white/10 hover:bg-white/20 border border-white/15 px-5 py-2.5 text-sm font-medium text-white transition cursor-pointer"
+      >
+        <span>⛶</span> Fullscreen
+      </button>
+    </div>
+
+    <div
+      id="game-wrapper"
+      class="mt-8 aspect-video rounded-xl overflow-hidden border border-white/10 bg-black"
+    >
       <!-- JuiceFruite embed -->
       <iframe
+        id="game-iframe"
         src="/games/JuiceFruite/index.html"
         class="w-full h-full"
+        allow="fullscreen"
+        allowfullscreen
         loading="lazy"
       ></iframe>
     </div>
@@ -30,5 +47,20 @@ import BaseLayout from "../../../../layouts/BaseLayout.astro";
       If you encounter issues, try reloading the page or using a different browser.
     </p>
   </main>
+
+  <script>
+    const btn = document.getElementById("fullscreen-btn");
+    const wrapper = document.getElementById("game-wrapper");
+
+    btn?.addEventListener("click", () => {
+      if (!document.fullscreenElement) {
+        wrapper?.requestFullscreen().catch((err) => {
+          console.error(`Error attempting to enable fullscreen: ${err.message}`);
+        });
+      } else {
+        document.exitFullscreen();
+      }
+    });
+  </script>
 </BaseLayout>
 
