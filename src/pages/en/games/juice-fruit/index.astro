@@ -1,0 +1,62 @@
+---
+import BaseLayout from "../../../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout lang="en">
+  <main class="mx-auto max-w-7xl px-6 pt-40 pb-28">
+    <a href="/en/games" class="text-sm text-white/60 hover:text-white">
+      ← Back to Games
+    </a>
+
+    <header class="mt-6">
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-white">Juice Fruit</h1>
+      <p class="mt-3 max-w-2xl text-white/70">
+        Juice Fruit is a fun memory-matching game built with Phaser 3. Flip card
+        pairs, match fruits and fishes, and test your memory skills!
+      </p>
+    </header>
+
+    <section class="mt-10 grid gap-8 md:grid-cols-2">
+      <div>
+        <h2 class="text-lg font-semibold text-white">Current status</h2>
+        <ul class="mt-3 text-sm text-white/70 space-y-1">
+          <li>• Playable web prototype</li>
+          <li>• Multiple card themes (Fruits & Fishes)</li>
+          <li>• Sound effects and timer challenge</li>
+        </ul>
+
+        <div class="mt-6 flex gap-4">
+          <a
+            href="/en/games/juice-fruit/play"
+            class="rounded-full bg-pink-600 px-5 py-2 text-sm text-white"
+          >
+            ▶ Play Web Version
+          </a>
+          <a
+            href="/en/games/juice-fruit/devlog"
+            class="inline-flex items-center justify-center rounded-full
+                 bg-gradient-to-r from-pink-500 to-rose-500
+                 px-6 py-3 text-sm font-medium text-white
+                 hover:from-rose-500 hover:to-pink-500 transition"
+          >
+            View devlog →
+          </a>
+        </div>
+      </div>
+
+      <div
+        class="rounded-xl bg-white/10 border border-white/10 p-4 text-white/60"
+      >
+        Gameplay preview
+        <img
+          src="/images/juice-fruit-game.jpg"
+          alt="Juice Fruit gameplay"
+          class="mt-2 mb-4 aspect-video w-full rounded-xl
+             object-cover border border-white/10"
+          loading="lazy"
+        />
+      </div>
+    </section>
+  </main>
+</BaseLayout>
+

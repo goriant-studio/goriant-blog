@@ -1,0 +1,62 @@
+---
+import BaseLayout from "../../../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout lang="vi">
+  <main class="mx-auto max-w-7xl px-6 pt-40 pb-28">
+    <a href="/vi/games" class="text-sm text-white/60 hover:text-white">
+      ← Quay lại Games
+    </a>
+
+    <header class="mt-6">
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-white">Juice Fruit</h1>
+      <p class="mt-3 max-w-2xl text-white/70">
+        Juice Fruit là game lật thẻ luyện trí nhớ vui nhộn được xây dựng bằng
+        Phaser 3. Lật tìm các cặp hình trái cây và cá giống nhau trước khi hết giờ!
+      </p>
+    </header>
+
+    <section class="mt-10 grid gap-8 md:grid-cols-2">
+      <div>
+        <h2 class="text-lg font-semibold text-white">Trạng thái hiện tại</h2>
+        <ul class="mt-3 text-sm text-white/70 space-y-1">
+          <li>• Bản prototype đã chơi được trên Web</li>
+          <li>• Nhiều chủ đề thẻ bài (Trái cây & Cá)</li>
+          <li>• Hiệu ứng âm thanh và thử thách tính giờ</li>
+        </ul>
+
+        <div class="mt-6 flex gap-4">
+          <a
+            href="/vi/games/juice-fruit/play"
+            class="rounded-full bg-pink-600 px-5 py-2 text-sm text-white"
+          >
+            ▶ Chơi bản Web
+          </a>
+          <a
+            href="/vi/games/juice-fruit/devlog"
+            class="inline-flex items-center justify-center rounded-full
+                 bg-gradient-to-r from-pink-500 to-rose-500
+                 px-6 py-3 text-sm font-medium text-white
+                 hover:from-rose-500 hover:to-pink-500 transition"
+          >
+            Xem devlog →
+          </a>
+        </div>
+      </div>
+
+      <div
+        class="rounded-xl bg-white/10 border border-white/10 p-4 text-white/60"
+      >
+        Preview gameplay
+        <img
+          src="/images/juice-fruit-game.jpg"
+          alt="Juice Fruit gameplay"
+          class="mt-2 mb-4 aspect-video w-full rounded-xl
+             object-cover border border-white/10"
+          loading="lazy"
+        />
+      </div>
+    </section>
+  </main>
+</BaseLayout>
+
