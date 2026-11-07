@@ -1,0 +1,80 @@
+---
+import BaseLayout from "../../../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout lang="vi">
+  <main class="mx-auto max-w-7xl px-6 pt-40 pb-28">
+    <a href="/vi/games" class="text-sm text-white/60 hover:text-white">
+      ← Quay lại Games
+    </a>
+
+    <header class="mt-6">
+      <div class="flex flex-wrap items-center gap-3">
+        <h1 class="text-3xl sm:text-4xl font-extrabold text-white">
+          Neon Survivor
+        </h1>
+        <span
+          class="rounded-full bg-cyan-500/20 border border-cyan-400/30 px-3 py-1 text-xs font-medium text-cyan-300"
+        >
+          NEON PROTOCOL: SWARM
+        </span>
+      </div>
+      <p class="mt-3 max-w-2xl text-white/70">
+        Neon Survivor (Neon Protocol: Swarm) là tựa game hành động sinh tồn
+        phong cách Cyber Bullet-Heaven được xây dựng bằng Phaser 3. Chiến đấu
+        chống lại bầy đàn quái vật không gian vô tận ở chế độ Solo (cùng AI
+        Wingman) hoặc lập phòng Co-op thời gian thực cùng bạn bè!
+      </p>
+    </header>
+
+    <section class="mt-10 grid gap-8 md:grid-cols-2">
+      <div>
+        <h2 class="text-lg font-semibold text-white">Tính năng &amp; Trạng thái</h2>
+        <ul class="mt-3 text-sm text-white/70 space-y-1.5">
+          <li>• Bản Web đã chơi được (Hỗ trợ cả Solo &amp; Co-op Multiplayer qua mã phòng)</li>
+          <li>• Cơ chế Laser Tether — lại gần đồng đội để nối tia laser càn quét kẻ địch</li>
+          <li>• Hệ thống vũ khí Cyber, hiệu ứng nguyên tố (Lửa, Băng, Điện) &amp; trạm Overclock</li>
+          <li>• Đấu Boss kịch tính và sinh tồn trước các đợt Swarm dồn dập</li>
+          <li>• Xây dựng với Phaser 3 &amp; triển khai trên Cloudflare Workers</li>
+        </ul>
+
+        <div class="mt-6 flex flex-wrap gap-4">
+          <a
+            href="/vi/games/neon-survivor/play"
+            class="rounded-full bg-cyan-600 hover:bg-cyan-500 px-5 py-2.5 text-sm font-medium text-white transition"
+          >
+            ▶ Chơi bản Web
+          </a>
+          <a
+            href="/vi/games/neon-survivor/devlog"
+            class="inline-flex items-center justify-center rounded-full
+                 bg-gradient-to-r from-cyan-500 to-blue-600
+                 px-6 py-2.5 text-sm font-medium text-white
+                 hover:from-blue-600 hover:to-cyan-500 transition"
+          >
+            Xem devlog →
+          </a>
+        </div>
+      </div>
+
+      <div
+        class="rounded-xl bg-white/10 border border-white/10 p-4 text-white/60"
+      >
+        Preview gameplay
+        <div
+          class="mt-2 mb-4 aspect-video w-full rounded-xl flex flex-col items-center justify-center
+             bg-gradient-to-br from-cyan-950/80 via-slate-900 to-fuchsia-950/80 border border-cyan-500/30
+             shadow-[0_0_30px_rgba(0,243,255,0.15)] text-center p-6"
+        >
+          <span class="text-5xl mb-3">⚡</span>
+          <p class="text-lg font-bold tracking-widest text-cyan-300">
+            NEON PROTOCOL: SWARM
+          </p>
+          <p class="mt-1 text-xs text-white/60">
+            Co-op Cyber Survivor
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
