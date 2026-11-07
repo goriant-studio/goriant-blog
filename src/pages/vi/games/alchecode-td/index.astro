@@ -1,0 +1,80 @@
+---
+import BaseLayout from "../../../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout lang="vi">
+  <main class="mx-auto max-w-7xl px-6 pt-40 pb-28">
+    <a href="/vi/games" class="text-sm text-white/60 hover:text-white">
+      ← Quay lại Games
+    </a>
+
+    <header class="mt-6">
+      <div class="flex flex-wrap items-center gap-3">
+        <h1 class="text-3xl sm:text-4xl font-extrabold text-white">
+          Nhà Giả Kim (AlcheCode TD)
+        </h1>
+        <span
+          class="rounded-full bg-purple-500/20 border border-purple-400/30 px-3 py-1 text-xs font-medium text-purple-300"
+        >
+          TOWER DEFENSE &amp; GLOBAL CODEX
+        </span>
+      </div>
+      <p class="mt-3 max-w-2xl text-white/70">
+        Nhà Giả Kim (AlcheCode TD) là tựa game Thủ Thành kết hợp Giả Kim Thuật và
+        điều khiển Tướng trực tiếp (Action RPG + Tower Defense) được xây dựng bằng
+        Phaser 3 &amp; Cloudflare Workers. Pha chế 2–3 nguyên tố trong Lò Giả Kim để
+        đúc ra hàng chục Tháp Đột Biến và ghi danh vào Sách Đồ Giám Toàn Cầu!
+      </p>
+    </header>
+
+    <section class="mt-10 grid gap-8 md:grid-cols-2">
+      <div>
+        <h2 class="text-lg font-semibold text-white">Tính năng &amp; Trạng thái</h2>
+        <ul class="mt-3 text-sm text-white/70 space-y-1.5">
+          <li>• Lò Hợp Nhất Nguyên Tố — kết hợp 2–3 nguyên tố để đúc Tháp Giả Kim đột biến</li>
+          <li>• Sách Đồ Giám Toàn Cầu (Cloudflare Global Codex) — lưu tên Nhà Giả Kim đầu tiên tìm ra công thức mới</li>
+          <li>• Điều khiển Nhà Giả Kim trực tiếp trên bản đồ (WASD, Tốc biến, Quá Tải &amp; chọn Perk khi lên cấp)</li>
+          <li>• Hệ thống Tinh Chất rơi từ quái giúp giảm 100% phí nguyên liệu pha chế</li>
+          <li>• Triệu hồi Boss Arch-Chimera &amp; Bảng Xếp Hạng Toàn Cầu trực tuyến</li>
+        </ul>
+
+        <div class="mt-6 flex flex-wrap gap-4">
+          <a
+            href="/vi/games/alchecode-td/play"
+            class="rounded-full bg-purple-600 hover:bg-purple-500 px-5 py-2.5 text-sm font-medium text-white transition"
+          >
+            ▶ Chơi bản Web
+          </a>
+          <a
+            href="/vi/games/alchecode-td/devlog"
+            class="inline-flex items-center justify-center rounded-full
+                 bg-gradient-to-r from-purple-500 to-fuchsia-600
+                 px-6 py-2.5 text-sm font-medium text-white
+                 hover:from-fuchsia-600 hover:to-purple-500 transition"
+          >
+            Xem devlog →
+          </a>
+        </div>
+      </div>
+
+      <div
+        class="rounded-xl bg-white/10 border border-white/10 p-4 text-white/60"
+      >
+        Preview gameplay
+        <div
+          class="mt-2 mb-4 aspect-video w-full rounded-xl flex flex-col items-center justify-center
+             bg-gradient-to-br from-purple-950/80 via-slate-900 to-fuchsia-950/80 border border-purple-500/30
+             shadow-[0_0_30px_rgba(192,132,252,0.15)] text-center p-6"
+        >
+          <span class="text-5xl mb-3">⚗️</span>
+          <p class="text-lg font-bold tracking-widest text-purple-300">
+            NHÀ GIẢ KIM — ALCHECODE TD
+          </p>
+          <p class="mt-1 text-xs text-white/60">
+            Lò Giả Kim Thủ Thành &amp; Sách Đồ Giám Toàn Cầu
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

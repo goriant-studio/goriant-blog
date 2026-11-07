@@ -1,0 +1,124 @@
+---
+import BaseLayout from "../../../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout lang="vi">
+  <main class="mx-auto max-w-7xl px-6 pt-40 pb-28">
+    <a href="/vi/games/alchecode-td" class="text-sm text-white/60 hover:text-white">
+      ← Quay lại Nhà Giả Kim (AlcheCode TD)
+    </a>
+
+    <div class="mt-6 flex flex-wrap items-center justify-between gap-4">
+      <div>
+        <h1 class="text-2xl font-bold text-white">
+          Chơi Nhà Giả Kim — AlcheCode TD (Web Prototype)
+        </h1>
+
+        <p class="mt-3 max-w-2xl text-white/70 text-sm">
+          Pha chế 2–3 nguyên tố trong Lò Giả Kim để đúc Tháp Đột Biến, điều khiển
+          Nhà Giả Kim bằng WASD/Space/E và khám phá Sách Đồ Giám Toàn Cầu!
+        </p>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <a
+          href="https://alchecode-td.lamle.workers.dev"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 rounded-full bg-white/5 hover:bg-white/15 border border-white/10 px-4 py-2.5 text-sm font-medium text-white/80 hover:text-white transition"
+        >
+          ↗ Mở tab mới
+        </a>
+        <button
+          id="fullscreen-btn"
+          class="inline-flex items-center gap-2 rounded-full bg-white/10 hover:bg-white/20 border border-white/15 px-5 py-2.5 text-sm font-medium text-white transition cursor-pointer"
+        >
+          <span>⛶</span> Toàn màn hình
+        </button>
+      </div>
+    </div>
+
+    <div
+      id="game-wrapper"
+      class="relative mt-8 aspect-video rounded-xl overflow-hidden border border-white/10 bg-black"
+    >
+      <button
+        id="exit-fullscreen-btn"
+        class="hidden absolute top-3 right-3 z-50 rounded-full bg-black/70 hover:bg-black/90 border border-white/20 px-3 py-1.5 text-xs font-medium text-white backdrop-blur transition cursor-pointer"
+      >
+        ✕ Thoát
+      </button>
+
+      <!-- AlcheCode TD embed -->
+      <iframe
+        id="game-iframe"
+        src="https://alchecode-td.lamle.workers.dev"
+        class="w-full h-full"
+        allow="fullscreen; autoplay; clipboard-read; clipboard-write"
+        allowfullscreen
+        loading="lazy"
+      ></iframe>
+    </div>
+
+    <p class="mt-4 text-xs text-white/50">
+      Nếu gặp lỗi, hãy reload trang hoặc thử trình duyệt khác. Khuyên dùng chế độ Toàn màn hình để trải nghiệm đầy đủ giao diện Lò Giả Kim.
+    </p>
+  </main>
+
+  <style>
+    .ios-fullscreen {
+      position: fixed !important;
+      inset: 0 !important;
+      z-index: 9999 !important;
+      width: 100vw !important;
+      height: 100dvh !important;
+      margin: 0 !important;
+      border-radius: 0 !important;
+      border: none !important;
+      aspect-ratio: unset !important;
+    }
+  </style>
+
+  <script>
+    const btn = document.getElementById("fullscreen-btn");
+    const exitBtn = document.getElementById("exit-fullscreen-btn");
+    const wrapper = document.getElementById("game-wrapper") as any;
+
+    function togglePseudoFullscreen(force?: boolean) {
+      const isPseudo = wrapper?.classList.toggle("ios-fullscreen", force);
+      if (isPseudo) {
+        exitBtn?.classList.remove("hidden");
+        document.body.style.overflow = "hidden";
+      } else {
+        exitBtn?.classList.add("hidden");
+        document.body.style.overflow = "";
+      }
+    }
+
+    function enterFullscreen() {
+      const doc = document as any;
+      if (doc.fullscreenElement || doc.webkitFullscreenElement) {
+        if (doc.exitFullscreen) doc.exitFullscreen();
+        else if (doc.webkitExitFullscreen) doc.webkitExitFullscreen();
+        return;
+      }
+
+      if (wrapper?.classList.contains("ios-fullscreen")) {
+        togglePseudoFullscreen(false);
+        return;
+      }
+
+      const req = wrapper?.requestFullscreen || wrapper?.webkitRequestFullscreen;
+      if (req) {
+        Promise.resolve(req.call(wrapper)).catch(() => {
+          togglePseudoFullscreen(true);
+        });
+      } else {
+        togglePseudoFullscreen(true);
+      }
+    }
+
+    btn?.addEventListener("click", enterFullscreen);
+    exitBtn?.addEventListener("click", () => togglePseudoFullscreen(false));
+  </script>
+</BaseLayout>

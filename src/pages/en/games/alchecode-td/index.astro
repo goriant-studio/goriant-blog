@@ -1,0 +1,81 @@
+---
+import BaseLayout from "../../../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout lang="en">
+  <main class="mx-auto max-w-7xl px-6 pt-40 pb-28">
+    <a href="/en/games" class="text-sm text-white/60 hover:text-white">
+      ← Back to Games
+    </a>
+
+    <header class="mt-6">
+      <div class="flex flex-wrap items-center gap-3">
+        <h1 class="text-3xl sm:text-4xl font-extrabold text-white">
+          AlcheCode TD (The Alchemist)
+        </h1>
+        <span
+          class="rounded-full bg-purple-500/20 border border-purple-400/30 px-3 py-1 text-xs font-medium text-purple-300"
+        >
+          TOWER DEFENSE &amp; GLOBAL CODEX
+        </span>
+      </div>
+      <p class="mt-3 max-w-2xl text-white/70">
+        AlcheCode TD (Nhà Giả Kim) is an Alchemy Tower Defense &amp; Action RPG
+        hybrid built with Phaser 3 &amp; Cloudflare Workers. Fuse 2–3 base elements
+        in the Alchemy Cauldron to craft mutated towers, control your Alchemist
+        hero on the battlefield, and immortalize your discoveries in the Global
+        Codex!
+      </p>
+    </header>
+
+    <section class="mt-10 grid gap-8 md:grid-cols-2">
+      <div>
+        <h2 class="text-lg font-semibold text-white">Key features &amp; status</h2>
+        <ul class="mt-3 text-sm text-white/70 space-y-1.5">
+          <li>• Elemental Fusion Cauldron — combine 2–3 elements to brew mutated Alchemy Towers</li>
+          <li>• Cloudflare Global Codex — permanently records the first Alchemist to discover each recipe</li>
+          <li>• Direct Alchemist Hero control (WASD move, Dash, Overload skill &amp; Level-up Perks)</li>
+          <li>• Monster Essence drops that discount 100% of elemental crafting costs</li>
+          <li>• Boss Arch-Chimera summons &amp; live Global Leaderboard</li>
+        </ul>
+
+        <div class="mt-6 flex flex-wrap gap-4">
+          <a
+            href="/en/games/alchecode-td/play"
+            class="rounded-full bg-purple-600 hover:bg-purple-500 px-5 py-2.5 text-sm font-medium text-white transition"
+          >
+            ▶ Play Web Version
+          </a>
+          <a
+            href="/en/games/alchecode-td/devlog"
+            class="inline-flex items-center justify-center rounded-full
+                 bg-gradient-to-r from-purple-500 to-fuchsia-600
+                 px-6 py-2.5 text-sm font-medium text-white
+                 hover:from-fuchsia-600 hover:to-purple-500 transition"
+          >
+            View devlog →
+          </a>
+        </div>
+      </div>
+
+      <div
+        class="rounded-xl bg-white/10 border border-white/10 p-4 text-white/60"
+      >
+        Gameplay preview
+        <div
+          class="mt-2 mb-4 aspect-video w-full rounded-xl flex flex-col items-center justify-center
+             bg-gradient-to-br from-purple-950/80 via-slate-900 to-fuchsia-950/80 border border-purple-500/30
+             shadow-[0_0_30px_rgba(192,132,252,0.15)] text-center p-6"
+        >
+          <span class="text-5xl mb-3">⚗️</span>
+          <p class="text-lg font-bold tracking-widest text-purple-300">
+            ALCHECODE TD — THE ALCHEMIST
+          </p>
+          <p class="mt-1 text-xs text-white/60">
+            Alchemy Tower Defense &amp; Global Codex
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
