@@ -1,0 +1,494 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1280 720" width="1280" height="720">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2b1b4a"/>
+      <stop offset="0.35" stop-color="#7a3b6b"/>
+      <stop offset="0.62" stop-color="#e0734a"/>
+      <stop offset="0.8" stop-color="#ffc173"/>
+    </linearGradient>
+    <radialGradient id="sun" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#fff6d6"/>
+      <stop offset="0.35" stop-color="#ffd98a"/>
+      <stop offset="1" stop-color="#ff9a4a" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="fireglow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#ffd27a" stop-opacity="0.9"/>
+      <stop offset="0.4" stop-color="#ff8a3d" stop-opacity="0.45"/>
+      <stop offset="1" stop-color="#ff5a1f" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="mtnFar" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#8a4f7a"/>
+      <stop offset="1" stop-color="#c76f63"/>
+    </linearGradient>
+    <linearGradient id="mtnNear" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#5a2f5c"/>
+      <stop offset="1" stop-color="#8e4a58"/>
+    </linearGradient>
+    <linearGradient id="hill" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#6f9a3e"/>
+      <stop offset="1" stop-color="#3e6a2a"/>
+    </linearGradient>
+    <linearGradient id="ground" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#4f7d2e"/>
+      <stop offset="1" stop-color="#22401c"/>
+    </linearGradient>
+    <linearGradient id="battleGround" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#4f7d2e" stop-opacity="0"/>
+      <stop offset="0.5" stop-color="#6b5a35"/>
+      <stop offset="1" stop-color="#4a3424"/>
+    </linearGradient>
+    <linearGradient id="wheat" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffd76a"/>
+      <stop offset="1" stop-color="#d99a2b"/>
+    </linearGradient>
+    <linearGradient id="stone" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#b7a99a"/>
+      <stop offset="1" stop-color="#7d6f66"/>
+    </linearGradient>
+    <linearGradient id="roofRed" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#d9563a"/>
+      <stop offset="1" stop-color="#9c3324"/>
+    </linearGradient>
+    <linearGradient id="roofBlue" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#4f78c9"/>
+      <stop offset="1" stop-color="#2d4b8c"/>
+    </linearGradient>
+    <linearGradient id="title" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fff3c4"/>
+      <stop offset="0.5" stop-color="#ffc35a"/>
+      <stop offset="1" stop-color="#e2701e"/>
+    </linearGradient>
+    <linearGradient id="vignette" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0.6" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#0d0718" stop-opacity="0.7"/>
+    </linearGradient>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6"/>
+    </filter>
+    <filter id="blur2"><feGaussianBlur stdDeviation="2"/></filter>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="160%">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#1a0d10" flood-opacity="0.55"/>
+    </filter>
+
+    <!-- Cottage -->
+    <g id="house">
+      <rect x="-26" y="-30" width="52" height="34" fill="#e8d2a8"/>
+      <rect x="-26" y="-30" width="52" height="34" fill="none" stroke="#6b4a2e" stroke-width="2"/>
+      <path d="M-26 -18 H26 M-10 -30 V4 M10 -30 V4" stroke="#7a5233" stroke-width="2.5"/>
+      <polygon points="-34,-28 0,-58 34,-28" fill="url(#roofRed)"/>
+      <path d="M-34 -28 L0 -58 L34 -28" fill="none" stroke="#5e1f16" stroke-width="2"/>
+      <rect x="-4" y="-14" width="10" height="18" fill="#5b3a22"/>
+      <rect x="-21" y="-12" width="8" height="8" fill="#ffd37a"/>
+      <rect x="14" y="-12" width="8" height="8" fill="#ffd37a"/>
+      <rect x="14" y="-56" width="7" height="16" fill="#7d6f66"/>
+    </g>
+
+    <!-- Tree -->
+    <g id="tree">
+      <rect x="-3" y="-8" width="6" height="16" fill="#5a3a22"/>
+      <circle cx="0" cy="-20" r="16" fill="#3f7a2e"/>
+      <circle cx="-8" cy="-14" r="11" fill="#356a27"/>
+      <circle cx="7" cy="-26" r="9" fill="#5a9a3a"/>
+    </g>
+
+    <!-- Pine -->
+    <g id="pine">
+      <rect x="-2.5" y="-4" width="5" height="10" fill="#4a2f1c"/>
+      <polygon points="0,-46 -16,-4 16,-4" fill="#2c5a2a"/>
+      <polygon points="0,-46 0,-4 16,-4" fill="#224a22"/>
+    </g>
+
+    <!-- Allied soldier (spearman with shield) -->
+    <g id="soldier">
+      <line x1="10" y1="-58" x2="10" y2="6" stroke="#6b4a2e" stroke-width="2.5"/>
+      <polygon points="10,-66 6,-56 14,-56" fill="#dfe6ee"/>
+      <rect x="-6" y="-20" width="5" height="20" fill="#3b3048"/>
+      <rect x="2" y="-20" width="5" height="20" fill="#3b3048"/>
+      <path d="M-9 -42 H9 L10 -18 H-10 Z" fill="#2f5bb0"/>
+      <path d="M-9 -42 H9 L10 -36 H-10 Z" fill="#c9d2dc"/>
+      <circle cx="0" cy="-49" r="7" fill="#f0c49a"/>
+      <path d="M-8 -50 Q0 -62 8 -50 Z" fill="#aab4c0"/>
+      <rect x="-1" y="-62" width="2" height="5" fill="#d9563a"/>
+      <path d="M-16 -40 H-2 V-24 Q-9 -16 -16 -24 Z" fill="#c63d2e" stroke="#ffd76a" stroke-width="2"/>
+      <circle cx="-9" cy="-31" r="2.6" fill="#ffd76a"/>
+    </g>
+
+    <!-- Archer -->
+    <g id="archer">
+      <rect x="-6" y="-20" width="5" height="20" fill="#3b3048"/>
+      <rect x="2" y="-20" width="5" height="20" fill="#3b3048"/>
+      <path d="M-9 -42 H9 L10 -18 H-10 Z" fill="#2f7a4a"/>
+      <circle cx="0" cy="-49" r="7" fill="#f0c49a"/>
+      <path d="M-9 -48 Q0 -64 9 -48 L6 -46 Q0 -54 -6 -46 Z" fill="#245a36"/>
+      <path d="M12 -60 Q26 -36 12 -12" fill="none" stroke="#7a5233" stroke-width="2.5"/>
+      <line x1="12" y1="-60" x2="12" y2="-12" stroke="#f3ead8" stroke-width="1"/>
+    </g>
+
+    <!-- Enemy (horned raider) -->
+    <g id="raider">
+      <rect x="-7" y="-20" width="6" height="20" fill="#2a1f22"/>
+      <rect x="2" y="-20" width="6" height="20" fill="#2a1f22"/>
+      <path d="M-11 -44 H11 L12 -18 H-12 Z" fill="#5a2a2a"/>
+      <path d="M-11 -44 H11 L12 -38 H-12 Z" fill="#3a1c1c"/>
+      <circle cx="0" cy="-51" r="8" fill="#7da35a"/>
+      <circle cx="-3" cy="-52" r="1.6" fill="#ff3d2e"/>
+      <circle cx="3" cy="-52" r="1.6" fill="#ff3d2e"/>
+      <path d="M-7 -56 Q-16 -62 -12 -72 Q-10 -62 -4 -59 Z" fill="#e8dcc2"/>
+      <path d="M7 -56 Q16 -62 12 -72 Q10 -62 4 -59 Z" fill="#e8dcc2"/>
+      <line x1="-14" y1="-62" x2="-14" y2="4" stroke="#4a3022" stroke-width="3"/>
+      <path d="M-14 -64 Q-30 -58 -26 -46 Q-20 -52 -14 -50 Z" fill="#a9b0b8" stroke="#545a62" stroke-width="1.2"/>
+      <circle cx="13" cy="-30" r="10" fill="#4a3022" stroke="#2a1a12" stroke-width="2"/>
+      <circle cx="13" cy="-30" r="3" fill="#a9b0b8"/>
+    </g>
+
+    <!-- Wheat stalk cluster -->
+    <g id="wheatTuft">
+      <path d="M0 0 Q-2 -12 -4 -22 M0 0 Q0 -14 1 -26 M0 0 Q3 -12 6 -20" stroke="#c88a22" stroke-width="1.6" fill="none"/>
+      <ellipse cx="-4" cy="-24" rx="2.2" ry="5" fill="#ffd76a"/>
+      <ellipse cx="1" cy="-28" rx="2.2" ry="5" fill="#ffe08a"/>
+      <ellipse cx="6" cy="-22" rx="2.2" ry="5" fill="#f2c04e"/>
+    </g>
+
+    <!-- Sheep -->
+    <g id="sheep">
+      <ellipse cx="0" cy="-8" rx="13" ry="9" fill="#f6f1e6"/>
+      <circle cx="-8" cy="-12" r="5" fill="#fffaf0"/>
+      <circle cx="5" cy="-13" r="5" fill="#fffaf0"/>
+      <ellipse cx="13" cy="-10" rx="5" ry="4" fill="#3a2e2a"/>
+      <rect x="-8" y="-2" width="3" height="7" fill="#3a2e2a"/>
+      <rect x="5" y="-2" width="3" height="7" fill="#3a2e2a"/>
+    </g>
+  </defs>
+
+  <!-- SKY -->
+  <rect width="1280" height="720" fill="url(#sky)"/>
+  <g opacity="0.85">
+    <circle cx="120" cy="60" r="1.6" fill="#fff"/>
+    <circle cx="260" cy="110" r="1.2" fill="#fff"/>
+    <circle cx="420" cy="45" r="1.4" fill="#fff"/>
+    <circle cx="640" cy="80" r="1" fill="#fff"/>
+    <circle cx="860" cy="38" r="1.5" fill="#fff"/>
+    <circle cx="1010" cy="96" r="1.1" fill="#fff"/>
+    <circle cx="1180" cy="54" r="1.6" fill="#fff"/>
+    <circle cx="1230" cy="140" r="1" fill="#fff"/>
+    <circle cx="60" cy="150" r="1" fill="#fff"/>
+  </g>
+
+  <!-- Sun -->
+  <circle cx="900" cy="330" r="190" fill="url(#sun)"/>
+  <circle cx="900" cy="330" r="62" fill="#fff1c2" opacity="0.95"/>
+
+  <!-- Clouds -->
+  <g fill="#ffd2a6" opacity="0.55">
+    <ellipse cx="260" cy="210" rx="140" ry="18"/>
+    <ellipse cx="320" cy="196" rx="70" ry="16"/>
+    <ellipse cx="1080" cy="190" rx="150" ry="16"/>
+    <ellipse cx="1020" cy="178" rx="60" ry="14"/>
+    <ellipse cx="700" cy="250" rx="110" ry="10"/>
+  </g>
+
+  <!-- Far mountains -->
+  <path d="M0 380 L90 300 L170 350 L260 270 L360 345 L450 290 L560 360 L660 300 L760 360 L860 290 L980 350 L1080 280 L1180 340 L1280 300 V460 H0 Z" fill="url(#mtnFar)" opacity="0.8"/>
+  <path d="M260 270 L290 298 L276 300 L262 292 L250 300 L240 290 Z M1080 280 L1110 306 L1094 304 L1080 296 L1066 306 L1056 298 Z" fill="#f3d0c8" opacity="0.7"/>
+  <path d="M0 420 L120 350 L230 410 L340 360 L470 420 L600 370 L720 430 L860 380 L1000 430 L1130 370 L1280 410 V480 H0 Z" fill="url(#mtnNear)" opacity="0.9"/>
+
+  <!-- Rolling hills -->
+  <path d="M0 470 Q200 400 420 450 T840 440 T1280 450 V720 H0 Z" fill="url(#hill)"/>
+  <path d="M0 520 Q260 470 520 505 T1000 495 T1280 500 V720 H0 Z" fill="url(#ground)"/>
+
+  <!-- Distant pines on hill -->
+  <g opacity="0.75">
+    <use href="#pine" x="40" y="462" transform="scale(1)"/>
+    <use href="#pine" x="70" y="455"/>
+    <use href="#pine" x="100" y="462"/>
+    <use href="#pine" x="1220" y="452"/>
+    <use href="#pine" x="1250" y="458"/>
+  </g>
+
+  <!-- ============ FARM (left) ============ -->
+  <!-- Crop fields -->
+  <g>
+    <path d="M30 560 L260 520 L330 580 L90 630 Z" fill="#e3a83a"/>
+    <path d="M30 560 L260 520 L330 580 L90 630 Z" fill="url(#wheat)" opacity="0.8"/>
+    <g stroke="#b7791f" stroke-width="2" opacity="0.7">
+      <line x1="45" y1="571" x2="275" y2="533"/>
+      <line x1="58" y1="583" x2="290" y2="546"/>
+      <line x1="70" y1="596" x2="303" y2="558"/>
+      <line x1="80" y1="610" x2="316" y2="570"/>
+    </g>
+    <path d="M250 520 L420 492 L480 540 L320 578 Z" fill="#5f9a36"/>
+    <g stroke="#3f7a24" stroke-width="3" stroke-linecap="round" stroke-dasharray="2 9">
+      <line x1="268" y1="526" x2="428" y2="499"/>
+      <line x1="282" y1="538" x2="442" y2="511"/>
+      <line x1="296" y1="550" x2="456" y2="523"/>
+      <line x1="308" y1="563" x2="468" y2="534"/>
+    </g>
+    <!-- Wheat tufts -->
+    <g>
+      <use href="#wheatTuft" x="110" y="600"/>
+      <use href="#wheatTuft" x="140" y="594"/>
+      <use href="#wheatTuft" x="170" y="588"/>
+      <use href="#wheatTuft" x="200" y="582"/>
+      <use href="#wheatTuft" x="230" y="575"/>
+      <use href="#wheatTuft" x="260" y="568"/>
+      <use href="#wheatTuft" x="290" y="565"/>
+    </g>
+    <!-- Fence -->
+    <g stroke="#7a5233" stroke-width="3">
+      <line x1="20" y1="640" x2="340" y2="590"/>
+      <line x1="20" y1="652" x2="340" y2="602"/>
+      <line x1="30" y1="634" x2="30" y2="658"/>
+      <line x1="90" y1="624" x2="90" y2="648"/>
+      <line x1="150" y1="615" x2="150" y2="639"/>
+      <line x1="210" y1="606" x2="210" y2="630"/>
+      <line x1="270" y1="597" x2="270" y2="621"/>
+      <line x1="330" y1="588" x2="330" y2="612"/>
+    </g>
+  </g>
+
+  <!-- Windmill -->
+  <g transform="translate(150 505)" filter="url(#shadow)">
+    <polygon points="-22,0 22,0 14,-90 -14,-90" fill="#e8d2a8" stroke="#6b4a2e" stroke-width="2"/>
+    <polygon points="-20,-88 0,-112 20,-88" fill="url(#roofRed)"/>
+    <rect x="-7" y="-22" width="14" height="22" fill="#5b3a22"/>
+    <rect x="-5" y="-60" width="10" height="10" fill="#ffd37a"/>
+    <g transform="translate(0 -94) rotate(18)">
+      <g fill="#f3ead8" stroke="#7a5233" stroke-width="2">
+        <rect x="-5" y="-78" width="10" height="72"/>
+        <rect x="-5" y="6" width="10" height="72"/>
+        <rect x="6" y="-5" width="72" height="10"/>
+        <rect x="-78" y="-5" width="72" height="10"/>
+      </g>
+      <circle r="7" fill="#6b4a2e"/>
+    </g>
+  </g>
+
+  <!-- Barn -->
+  <g transform="translate(395 500)" filter="url(#shadow)">
+    <rect x="-42" y="-44" width="84" height="48" fill="#b8402c"/>
+    <polygon points="-50,-42 0,-82 50,-42" fill="#7a2a1e"/>
+    <path d="M-50 -42 L0 -82 L50 -42" fill="none" stroke="#f3ead8" stroke-width="3"/>
+    <rect x="-16" y="-28" width="32" height="32" fill="#7a2a1e" stroke="#f3ead8" stroke-width="3"/>
+    <path d="M-16 -28 L16 4 M16 -28 L-16 4" stroke="#f3ead8" stroke-width="2.5"/>
+    <rect x="-8" y="-62" width="16" height="12" fill="#f3ead8"/>
+  </g>
+  <!-- Hay bales -->
+  <g>
+    <ellipse cx="452" cy="512" rx="14" ry="11" fill="#e6b24a" stroke="#a5701c" stroke-width="2"/>
+    <ellipse cx="470" cy="520" rx="12" ry="10" fill="#f2c460" stroke="#a5701c" stroke-width="2"/>
+  </g>
+  <!-- Sheep -->
+  <use href="#sheep" x="60" y="690"/>
+  <use href="#sheep" x="105" y="700" transform="translate(0 0)"/>
+
+  <!-- ============ VILLAGE + CASTLE (center) ============ -->
+  <!-- Hearth glow -->
+  <ellipse cx="640" cy="470" rx="260" ry="140" fill="url(#fireglow)" opacity="0.65"/>
+
+  <!-- Back houses -->
+  <use href="#house" x="520" y="470" transform="translate(0 0)"/>
+  <use href="#house" x="770" y="468"/>
+
+  <!-- Castle walls -->
+  <g filter="url(#shadow)">
+    <rect x="540" y="396" width="200" height="76" fill="url(#stone)"/>
+    <g fill="url(#stone)">
+      <rect x="540" y="384" width="16" height="14"/>
+      <rect x="566" y="384" width="16" height="14"/>
+      <rect x="592" y="384" width="16" height="14"/>
+      <rect x="672" y="384" width="16" height="14"/>
+      <rect x="698" y="384" width="16" height="14"/>
+      <rect x="724" y="384" width="16" height="14"/>
+    </g>
+    <g stroke="#6a5c55" stroke-width="1.2" opacity="0.6">
+      <path d="M540 416 H740 M540 436 H740 M540 456 H740"/>
+      <path d="M560 396 V416 M600 396 V416 M680 396 V416 M720 396 V416 M580 416 V436 M700 416 V436 M560 436 V456 M720 436 V456"/>
+    </g>
+    <!-- Side towers -->
+    <rect x="510" y="350" width="44" height="122" fill="url(#stone)"/>
+    <polygon points="504,352 532,300 560,352" fill="url(#roofBlue)"/>
+    <rect x="726" y="350" width="44" height="122" fill="url(#stone)"/>
+    <polygon points="720,352 748,300 776,352" fill="url(#roofBlue)"/>
+    <rect x="526" y="378" width="12" height="18" rx="6" fill="#ffc35a"/>
+    <rect x="742" y="378" width="12" height="18" rx="6" fill="#ffc35a"/>
+    <!-- Keep -->
+    <rect x="600" y="300" width="80" height="172" fill="url(#stone)"/>
+    <g fill="url(#stone)">
+      <rect x="596" y="288" width="16" height="14"/>
+      <rect x="620" y="288" width="16" height="14"/>
+      <rect x="644" y="288" width="16" height="14"/>
+      <rect x="668" y="288" width="16" height="14"/>
+    </g>
+    <rect x="626" y="330" width="12" height="20" rx="6" fill="#ffc35a"/>
+    <rect x="644" y="330" width="12" height="20" rx="6" fill="#ffc35a"/>
+    <!-- Gate with hearth fire -->
+    <path d="M618 472 V420 Q640 396 662 420 V472 Z" fill="#2a1610"/>
+    <path d="M626 472 V426 Q640 410 654 426 V472 Z" fill="#ff8a3d"/>
+    <path d="M630 472 Q632 450 640 436 Q648 452 650 472 Z" fill="#ffd27a"/>
+    <path d="M635 472 Q637 458 640 450 Q643 460 645 472 Z" fill="#fff3c4"/>
+    <!-- Flag -->
+    <line x1="640" y1="288" x2="640" y2="226" stroke="#4a3022" stroke-width="3"/>
+    <path d="M640 228 Q664 222 688 232 Q664 240 640 248 Z" fill="#d9563a"/>
+    <path d="M652 232 l4 6 l6 -1 l-4 5 l2 6 l-6 -3 l-6 3 l2 -6 l-4 -5 l6 1 Z" fill="#ffd76a" transform="translate(4 -2) scale(0.9)"/>
+    <line x1="532" y1="300" x2="532" y2="272" stroke="#4a3022" stroke-width="2"/>
+    <path d="M532 273 L552 279 L532 286 Z" fill="#ffd76a"/>
+    <line x1="748" y1="300" x2="748" y2="272" stroke="#4a3022" stroke-width="2"/>
+    <path d="M748 273 L768 279 L748 286 Z" fill="#ffd76a"/>
+  </g>
+
+  <!-- Chimney smoke -->
+  <g fill="#e9d6d0" opacity="0.4" filter="url(#blur2)">
+    <circle cx="537" cy="398" r="7"/>
+    <circle cx="545" cy="380" r="10"/>
+    <circle cx="556" cy="358" r="13"/>
+    <circle cx="787" cy="396" r="7"/>
+    <circle cx="795" cy="378" r="10"/>
+  </g>
+
+  <!-- Front houses -->
+  <use href="#house" x="470" y="520"/>
+  <use href="#house" x="560" y="540"/>
+  <use href="#house" x="720" y="540"/>
+  <use href="#house" x="810" y="522"/>
+  <use href="#tree" x="510" y="560"/>
+  <use href="#tree" x="770" y="566"/>
+  <use href="#tree" x="440" y="560"/>
+
+  <!-- Road from gate -->
+  <path d="M626 472 Q600 560 520 720 H760 Q680 560 654 472 Z" fill="#c9a26a" opacity="0.85"/>
+  <path d="M640 480 Q630 580 600 720" stroke="#e2c38c" stroke-width="3" stroke-dasharray="10 14" fill="none" opacity="0.7"/>
+
+  <!-- Lantern sparks -->
+  <g fill="#ffd27a">
+    <circle cx="600" cy="430" r="2"/>
+    <circle cx="690" cy="420" r="1.6"/>
+    <circle cx="660" cy="380" r="1.4"/>
+    <circle cx="620" cy="370" r="1.2"/>
+    <circle cx="700" cy="460" r="1.8"/>
+  </g>
+
+  <!-- ============ BATTLE (right) ============ -->
+  <path d="M860 520 Q1060 480 1280 500 V720 H900 Z" fill="url(#battleGround)" opacity="0.8"/>
+
+  <!-- Training dummy / barracks -->
+  <g transform="translate(905 520)" filter="url(#shadow)">
+    <rect x="-34" y="-36" width="68" height="40" fill="#8a6a4a" stroke="#4a3022" stroke-width="2"/>
+    <polygon points="-42,-34 0,-64 42,-34" fill="#3d5a8c"/>
+    <rect x="-10" y="-22" width="20" height="26" fill="#3a2518"/>
+    <g transform="translate(0 -46)">
+      <line x1="-12" y1="-10" x2="12" y2="10" stroke="#dfe6ee" stroke-width="3"/>
+      <line x1="12" y1="-10" x2="-12" y2="10" stroke="#dfe6ee" stroke-width="3"/>
+    </g>
+  </g>
+
+  <!-- Dust & fire of battle -->
+  <g filter="url(#soft)" opacity="0.6">
+    <ellipse cx="1090" cy="560" rx="120" ry="30" fill="#c9a26a"/>
+    <ellipse cx="1180" cy="470" rx="60" ry="40" fill="#ff7a3d" opacity="0.5"/>
+  </g>
+  <!-- Burning enemy siege tent -->
+  <g transform="translate(1210 510)">
+    <polygon points="-36,0 0,-54 36,0" fill="#4a2a2a" stroke="#2a1414" stroke-width="2"/>
+    <path d="M-10 -40 Q-4 -70 6 -56 Q12 -84 22 -54 Q30 -66 26 -36 Z" fill="#ff8a3d"/>
+    <path d="M-2 -40 Q2 -60 8 -50 Q14 -66 18 -44 Z" fill="#ffd27a"/>
+    <line x1="0" y1="-54" x2="0" y2="-80" stroke="#2a1414" stroke-width="2"/>
+    <path d="M0 -80 L-18 -74 L0 -68 Z" fill="#5a2a5a"/>
+  </g>
+
+  <!-- Arrows in flight -->
+  <g stroke="#3a2518" stroke-width="2" stroke-linecap="round">
+    <line x1="960" y1="420" x2="1000" y2="404"/>
+    <line x1="990" y1="440" x2="1030" y2="426"/>
+    <line x1="1020" y1="410" x2="1060" y2="398"/>
+    <line x1="1050" y1="436" x2="1090" y2="424"/>
+  </g>
+  <g fill="#dfe6ee">
+    <polygon points="1000,404 993,403 996,410"/>
+    <polygon points="1030,426 1023,425 1026,432"/>
+    <polygon points="1060,398 1053,397 1055,404"/>
+    <polygon points="1090,424 1083,423 1086,430"/>
+  </g>
+  <path d="M900 470 Q1000 380 1100 430" stroke="#fff3c4" stroke-width="1" fill="none" stroke-dasharray="3 6" opacity="0.5"/>
+
+  <!-- Allied army -->
+  <g filter="url(#shadow)">
+    <use href="#archer" x="950" y="575"/>
+    <use href="#archer" x="925" y="590"/>
+    <use href="#soldier" x="995" y="595"/>
+    <use href="#soldier" x="1020" y="610"/>
+    <use href="#soldier" x="975" y="625"/>
+    <use href="#soldier" x="1045" y="630"/>
+  </g>
+
+  <!-- Clash sparks -->
+  <g transform="translate(1078 590)">
+    <circle r="22" fill="url(#fireglow)"/>
+    <path d="M0 -16 L4 -4 L16 0 L4 4 L0 16 L-4 4 L-16 0 L-4 -4 Z" fill="#fff3c4"/>
+  </g>
+  <g transform="translate(1110 640)">
+    <circle r="16" fill="url(#fireglow)"/>
+    <path d="M0 -10 L3 -3 L10 0 L3 3 L0 10 L-3 3 L-10 0 L-3 -3 Z" fill="#fff3c4"/>
+  </g>
+
+  <!-- Enemy horde -->
+  <g filter="url(#shadow)">
+    <use href="#raider" x="1110" y="600" transform="translate(2220 0) scale(-1 1)"/>
+    <use href="#raider" x="1150" y="585" transform="translate(2300 0) scale(-1 1)"/>
+    <use href="#raider" x="1140" y="645" transform="translate(2280 0) scale(-1 1)"/>
+    <use href="#raider" x="1195" y="620" transform="translate(2390 0) scale(-1 1)"/>
+    <use href="#raider" x="1240" y="600" transform="translate(2480 0) scale(-1 1)"/>
+    <use href="#raider" x="1235" y="660" transform="translate(2470 0) scale(-1 1)"/>
+  </g>
+
+  <!-- ============ HERO COMMANDER (foreground) ============ -->
+  <g transform="translate(880 712)" filter="url(#shadow)">
+    <!-- cape -->
+    <path d="M-26 -118 Q-60 -60 -44 0 H30 Q40 -60 20 -118 Z" fill="#9c2a24"/>
+    <path d="M-26 -118 Q-50 -60 -38 0 H-20 Q-30 -60 -14 -116 Z" fill="#7a1f1a"/>
+    <!-- legs -->
+    <rect x="-16" y="-50" width="12" height="50" fill="#5d6672"/>
+    <rect x="4" y="-50" width="12" height="50" fill="#5d6672"/>
+    <rect x="-18" y="-10" width="16" height="10" fill="#3a2e2a"/>
+    <rect x="2" y="-10" width="16" height="10" fill="#3a2e2a"/>
+    <!-- body armor -->
+    <path d="M-22 -116 H22 L24 -48 H-24 Z" fill="#c9d2dc"/>
+    <path d="M-22 -116 H22 L24 -48 H-24 Z" fill="none" stroke="#6a7480" stroke-width="2"/>
+    <path d="M-8 -108 L8 -108 L4 -60 L-4 -60 Z" fill="#2f5bb0"/>
+    <rect x="-24" y="-58" width="48" height="8" fill="#6b4a2e"/>
+    <rect x="-5" y="-59" width="10" height="10" fill="#ffd76a"/>
+    <!-- head -->
+    <circle cx="0" cy="-132" r="15" fill="#f0c49a"/>
+    <path d="M-16 -134 Q0 -162 16 -134 L16 -128 H-16 Z" fill="#aab4c0" stroke="#6a7480" stroke-width="1.5"/>
+    <path d="M-2 -160 Q10 -180 24 -170 Q12 -166 4 -156 Z" fill="#d9563a"/>
+    <!-- sword arm raised -->
+    <path d="M18 -110 L44 -150" stroke="#c9d2dc" stroke-width="10" stroke-linecap="round"/>
+    <g transform="translate(46 -154) rotate(-35)">
+      <rect x="-3" y="-90" width="6" height="84" fill="#eef3f8"/>
+      <polygon points="-3,-90 0,-100 3,-90" fill="#eef3f8"/>
+      <rect x="-14" y="-8" width="28" height="5" fill="#ffd76a"/>
+      <rect x="-2.5" y="-3" width="5" height="14" fill="#6b4a2e"/>
+      <line x1="0" y1="-88" x2="0" y2="-10" stroke="#ffffff" stroke-width="1.2" opacity="0.8"/>
+    </g>
+    <!-- shield -->
+    <g transform="translate(-32 -82)">
+      <path d="M-22 -26 H22 V2 Q22 24 0 34 Q-22 24 -22 2 Z" fill="#2f5bb0" stroke="#ffd76a" stroke-width="3"/>
+      <path d="M-10 4 Q-12 -6 -4 -14 Q-2 -6 0 -10 Q4 -2 6 -14 Q14 -4 10 4 Q8 14 0 16 Q-8 14 -10 4 Z" fill="#ff9a4a"/>
+      <path d="M-4 6 Q-4 -2 0 -4 Q4 -2 4 6 Q2 12 0 12 Q-2 12 -4 6 Z" fill="#ffd27a"/>
+    </g>
+  </g>
+
+  <!-- Foreground grass -->
+  <path d="M0 700 Q160 680 320 700 T640 700 T960 705 T1280 700 V720 H0 Z" fill="#1d3518"/>
+
+  <!-- Vignette -->
+  <rect width="1280" height="720" fill="url(#vignette)"/>
+
+  <!-- ============ TITLE ============ -->
+  <g transform="translate(70 120)">
+    <text x="4" y="6" font-family="Georgia, 'Times New Roman', serif" font-size="96" font-weight="700" letter-spacing="10" fill="#2a120c" opacity="0.6">HEARTH</text>
+    <text x="0" y="0" font-family="Georgia, 'Times New Roman', serif" font-size="96" font-weight="700" letter-spacing="10" fill="url(#title)" stroke="#6b2a12" stroke-width="2">HEARTH</text>
+    <path d="M4 22 H420" stroke="#ffd27a" stroke-width="2" opacity="0.8"/>
+    <circle cx="212" cy="22" r="5" fill="#ffd27a"/>
+    <text x="4" y="56" font-family="'Trebuchet MS', Verdana, sans-serif" font-size="22" letter-spacing="5" fill="#fff3e0">BUILD · FARM · TRAIN · BATTLE</text>
+  </g>
+</svg>

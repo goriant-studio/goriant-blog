@@ -1,0 +1,63 @@
+---
+import BaseLayout from "../../../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout lang="en">
+  <main class="mx-auto max-w-7xl px-6 pt-40 pb-28">
+    <a href="/en/games" class="text-sm text-white/60 hover:text-white">
+      ← Back to Games
+    </a>
+
+    <header class="mt-6">
+      <div class="flex flex-wrap items-center gap-3">
+        <h1 class="text-3xl sm:text-4xl font-extrabold text-white">
+          Hearth
+        </h1>
+        <span
+          class="rounded-full bg-amber-500/20 border border-amber-400/30 px-3 py-1 text-xs font-medium text-amber-200"
+        >
+          STRATEGY · BUILD &amp; BATTLE
+        </span>
+      </div>
+      <p class="mt-3 max-w-2xl text-white/70">
+        Hearth is a kingdom-building strategy game. Raise houses around the
+        hearth fire, plant farms to feed your people, train soldiers and archers,
+        then lead your army into battle against the raiders threatening your land.
+      </p>
+    </header>
+
+    <section class="mt-10 grid gap-8 md:grid-cols-2">
+      <div>
+        <h2 class="text-lg font-semibold text-white">Key features &amp; status</h2>
+        <ul class="mt-3 text-sm text-white/70 space-y-1.5">
+          <li>• Playable Web Prototype</li>
+          <li>• Build houses, walls and a castle around the hearth</li>
+          <li>• Farm crops and raise livestock to grow your economy</li>
+          <li>• Train spearmen, archers and heroes in the barracks</li>
+          <li>• Battle raider hordes to defend and expand your realm</li>
+        </ul>
+
+        <div class="mt-6 flex flex-wrap gap-4">
+          <a
+            href="/en/games/hearth/play"
+            class="rounded-full bg-amber-600 hover:bg-amber-500 px-5 py-2.5 text-sm font-medium text-white transition"
+          >
+            ▶ Play Web Version
+          </a>
+        </div>
+      </div>
+
+      <div
+        class="rounded-xl bg-white/10 border border-white/10 p-4 text-white/60"
+      >
+        Artwork
+        <img
+          src="/images/hearth.svg"
+          alt="Hearth artwork: a glowing castle village with farms and a windmill at sunset, while a knight commander leads soldiers and archers against horned raiders"
+          class="mt-2 mb-2 aspect-video w-full rounded-xl object-cover border border-amber-500/30"
+          loading="lazy"
+        />
+      </div>
+    </section>
+  </main>
+</BaseLayout>
