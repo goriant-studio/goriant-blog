@@ -1,0 +1,62 @@
+---
+import BaseLayout from "../../../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout lang="en">
+  <main class="mx-auto max-w-7xl px-6 pt-40 pb-28">
+    <a href="/en/games" class="text-sm text-white/60 hover:text-white">
+      ← Back to Games
+    </a>
+
+    <header class="mt-6">
+      <div class="flex flex-wrap items-center gap-3">
+        <h1 class="text-3xl sm:text-4xl font-extrabold text-white">
+          Echoes of Memory
+        </h1>
+        <span
+          class="rounded-full bg-violet-500/20 border border-violet-400/30 px-3 py-1 text-xs font-medium text-violet-200"
+        >
+          RPG · RECOVER THE PAST
+        </span>
+      </div>
+      <p class="mt-3 max-w-2xl text-white/70">
+        Echoes of Memory is a role-playing game about rediscovering what was
+        lost. Wander through a dreamlike world, speak with the people you once
+        knew, and piece together forgotten memories one fragment at a time.
+      </p>
+    </header>
+
+    <section class="mt-10 grid gap-8 md:grid-cols-2">
+      <div>
+        <h2 class="text-lg font-semibold text-white">Key features &amp; status</h2>
+        <ul class="mt-3 text-sm text-white/70 space-y-1.5">
+          <li>• Playable Web Prototype</li>
+          <li>• Turn-based RPG combat and exploration</li>
+          <li>• Memory fragments: collect them to uncover the story</li>
+          <li>• A dreamlike world shaped by what the hero remembers</li>
+        </ul>
+
+        <div class="mt-6 flex flex-wrap gap-4">
+          <a
+            href="/en/games/echoes-of-memory/play"
+            class="rounded-full bg-violet-600 hover:bg-violet-500 px-5 py-2.5 text-sm font-medium text-white transition"
+          >
+            ▶ Play Web Version
+          </a>
+        </div>
+      </div>
+
+      <div
+        class="rounded-xl bg-white/10 border border-white/10 p-4 text-white/60"
+      >
+        Artwork
+        <img
+          src="/images/echoes-of-memory.svg"
+          alt="Echoes of Memory artwork: a lone wanderer with a lantern walks a glowing path beneath a giant crystal tree, while memory fragments float in a twilight sky"
+          class="mt-2 mb-2 aspect-video w-full rounded-xl object-cover border border-violet-500/30"
+          loading="lazy"
+        />
+      </div>
+    </section>
+  </main>
+</BaseLayout>

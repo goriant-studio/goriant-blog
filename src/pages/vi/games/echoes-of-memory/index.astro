@@ -1,0 +1,62 @@
+---
+import BaseLayout from "../../../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout lang="vi">
+  <main class="mx-auto max-w-7xl px-6 pt-40 pb-28">
+    <a href="/vi/games" class="text-sm text-white/60 hover:text-white">
+      ← Quay lại Games
+    </a>
+
+    <header class="mt-6">
+      <div class="flex flex-wrap items-center gap-3">
+        <h1 class="text-3xl sm:text-4xl font-extrabold text-white">
+          Echoes of Memory
+        </h1>
+        <span
+          class="rounded-full bg-violet-500/20 border border-violet-400/30 px-3 py-1 text-xs font-medium text-violet-200"
+        >
+          RPG · TÌM LẠI KÝ ỨC
+        </span>
+      </div>
+      <p class="mt-3 max-w-2xl text-white/70">
+        Echoes of Memory là game nhập vai về hành trình tìm lại những điều đã
+        mất. Lang thang qua một thế giới như trong mơ, trò chuyện với những
+        người bạn từng quen biết và ghép lại từng mảnh ký ức đã bị lãng quên.
+      </p>
+    </header>
+
+    <section class="mt-10 grid gap-8 md:grid-cols-2">
+      <div>
+        <h2 class="text-lg font-semibold text-white">Tính năng &amp; Trạng thái</h2>
+        <ul class="mt-3 text-sm text-white/70 space-y-1.5">
+          <li>• Bản Web đã chơi được (Web Prototype)</li>
+          <li>• Chiến đấu theo lượt và khám phá thế giới</li>
+          <li>• Mảnh ký ức: thu thập để khám phá câu chuyện</li>
+          <li>• Thế giới trong mơ được định hình bởi những gì nhân vật còn nhớ</li>
+        </ul>
+
+        <div class="mt-6 flex flex-wrap gap-4">
+          <a
+            href="/vi/games/echoes-of-memory/play"
+            class="rounded-full bg-violet-600 hover:bg-violet-500 px-5 py-2.5 text-sm font-medium text-white transition"
+          >
+            ▶ Chơi bản Web
+          </a>
+        </div>
+      </div>
+
+      <div
+        class="rounded-xl bg-white/10 border border-white/10 p-4 text-white/60"
+      >
+        Tranh minh họa
+        <img
+          src="/images/echoes-of-memory.svg"
+          alt="Tranh Echoes of Memory: một người lữ hành cầm đèn lồng bước trên con đường phát sáng dưới cây pha lê khổng lồ, các mảnh ký ức trôi trên bầu trời chạng vạng"
+          class="mt-2 mb-2 aspect-video w-full rounded-xl object-cover border border-violet-500/30"
+          loading="lazy"
+        />
+      </div>
+    </section>
+  </main>
+</BaseLayout>
